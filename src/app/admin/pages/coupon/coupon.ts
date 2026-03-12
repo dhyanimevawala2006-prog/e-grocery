@@ -12,7 +12,11 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./coupon.css'],
 })
 export class Coupon implements OnInit {
+  today = new Date();
+
   coupons: any[] = [];
+
+  editingId: any = null;
 
   couponData: any = {
     code: '',
@@ -25,48 +29,77 @@ export class Coupon implements OnInit {
 
   apiUrl = 'http://localhost:3000/api/coupon';
 
-  // constructor(private http: HttpClient) {}
   constructor(
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
-    console.log('Coupon page loaded');
-
     setTimeout(() => {
       this.getCoupons();
     }, 100);
   }
 
   getCoupons() {
-    console.log('Calling coupon API');
-
     this.http.get(`${this.apiUrl}/all`).subscribe((res: any) => {
-      console.log('Full API response:', res);
-
       this.coupons = res.data || [];
 
-      console.log('Coupons assigned:', this.coupons);
-
-      this.cdr.detectChanges(); // ⭐ force UI update
+      this.cdr.detectChanges();
     });
   }
 
-  createCoupon() {
-    this.http.post(`${this.apiUrl}/create`, this.couponData).subscribe((res: any) => {
-      alert('Coupon Created');
+  /* CREATE OR UPDATE */
 
-      this.getCoupons();
-
-      this.resetForm();
-    });
+  saveCoupon() {
+    if (this.editingId) {
+      this.http.put(`${this.apiUrl}/update/${this.editingId}`, this.couponData).subscribe(() => {
+        alert('Coupon Updated');
+        this.editingId = null;
+        this.getCoupons();
+        this.resetForm();
+      });
+    } else {
+      this.http.post(`${this.apiUrl}/create`, this.couponData).subscribe(() => {
+        alert('Coupon Created');
+        this.getCoupons();
+        this.resetForm();
+      });
+    }
   }
+
+  /* EDIT */
+
+  editCoupon(c: any) {
+    this.editingId = c._id;
+
+    this.couponData = {
+      code: c.code,
+      discountType: c.discountType,
+      discountValue: c.discountValue,
+      minOrderAmount: c.minOrderAmount,
+      maxDiscount: c.maxDiscount,
+      expiryDate: c.expiryDate?.substring(0, 10),
+    };
+  }
+
+  /* DELETE */
 
   deleteCoupon(id: string) {
     this.http.delete(`${this.apiUrl}/delete/${id}`).subscribe(() => {
       alert('Coupon Deleted');
+      this.getCoupons();
+    });
+  }
 
+  /* ACTIVE / INACTIVE */
+
+  toggleStatus(c: any) {
+    const updated = {
+      ...c,
+      isActive: !c.isActive,
+    };
+
+    this.http.put(`${this.apiUrl}/update/${c._id}`, updated).subscribe(() => {
       this.getCoupons();
     });
   }
@@ -84,5 +117,14 @@ export class Coupon implements OnInit {
 
   trackById(index: number, item: any) {
     return item._id;
+  }
+
+  isExpired(expiryDate: string | Date): boolean {
+    if (!expiryDate) return false;
+
+    const expiry = new Date(expiryDate);
+    const now = new Date();
+
+    return expiry.getTime() < now.getTime();
   }
 }

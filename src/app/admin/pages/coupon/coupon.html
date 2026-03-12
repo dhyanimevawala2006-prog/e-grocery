@@ -1,35 +1,58 @@
-<div class="coupon-container">
+<div class="coupon-page">
 
-    <h2>Create Coupon</h2>
+    <!-- CREATE / EDIT FORM -->
+    <div class="coupon-card">
 
-    <div class="coupon-form">
+        <h2>{{ editingId ? 'Edit Coupon' : 'Create Coupon' }}</h2>
 
-        <input type="text" placeholder="Coupon Code" [(ngModel)]="couponData.code">
+        <div class="coupon-form">
 
-        <select [(ngModel)]="couponData.discountType">
-            <option value="flat">Flat Discount</option>
-            <option value="percentage">Percentage</option>
-        </select>
+            <div class="form-group">
+                <label>Coupon Code</label>
+                <input type="text" [(ngModel)]="couponData.code" placeholder="SAVE50">
+            </div>
 
-        <input type="number" placeholder="Discount Value" [(ngModel)]="couponData.discountValue">
+            <div class="form-group">
+                <label>Discount Type</label>
+                <select [(ngModel)]="couponData.discountType">
+                    <option value="flat">Flat</option>
+                    <option value="percentage">Percentage</option>
+                </select>
+            </div>
 
-        <input type="number" placeholder="Min Order Amount" [(ngModel)]="couponData.minOrderAmount">
+            <div class="form-group">
+                <label>Discount Value</label>
+                <input type="number" [(ngModel)]="couponData.discountValue">
+            </div>
 
-        <input type="number" placeholder="Max Discount" [(ngModel)]="couponData.maxDiscount">
+            <div class="form-group">
+                <label>Min Order</label>
+                <input type="number" [(ngModel)]="couponData.minOrderAmount">
+            </div>
 
-        <input type="date" [(ngModel)]="couponData.expiryDate">
+            <div class="form-group">
+                <label>Max Discount</label>
+                <input type="number" [(ngModel)]="couponData.maxDiscount">
+            </div>
 
-        <button class="create-btn" (click)="createCoupon()">
-            Create Coupon
+            <div class="form-group">
+                <label>Expiry Date</label>
+                <input type="date" [(ngModel)]="couponData.expiryDate">
+            </div>
+
+        </div>
+
+        <button class="create-btn" (click)="saveCoupon()">
+            {{ editingId ? 'Update Coupon' : 'Create Coupon' }}
         </button>
 
     </div>
 
-    <hr>
 
-    <h2>All Coupons</h2>
+    <!-- COUPON TABLE -->
+    <div class="coupon-card">
 
-    <div class="table-wrapper">
+        <h2>All Coupons</h2>
 
         <table class="coupon-table">
 
@@ -40,6 +63,8 @@
                     <th>Value</th>
                     <th>Min Order</th>
                     <th>Expiry</th>
+                    <th>Status</th>
+                    <th>Active</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -48,24 +73,48 @@
 
                 <tr *ngFor="let c of coupons; trackBy: trackById">
 
-                    <td>{{ c.code }}</td>
+                    <td class="coupon-code-text">{{ c.code }}</td>
 
                     <td>
-                        <span class="badge">
+                        <span class="type-badge">
                             {{ c.discountType }}
                         </span>
                     </td>
 
-                    <td>{{ c.discountValue }}</td>
+                    <td>₹{{ c.discountValue }}</td>
 
                     <td>₹{{ c.minOrderAmount }}</td>
 
                     <td>{{ c.expiryDate | date:'mediumDate' }}</td>
 
+                    <!-- Expiry Status -->
                     <td>
+                        <span class="status" [class.expired]="isExpired(c.expiryDate)">
+                            {{ isExpired(c.expiryDate) ? 'Expired' : 'Active' }}
+                        </span>
+                    </td>
+
+                    <!-- Active Toggle -->
+                    <td>
+
+                        <label class="switch">
+                            <input type="checkbox" [checked]="c.isActive" (change)="toggleStatus(c)">
+                            <span class="slider"></span>
+                        </label>
+
+                    </td>
+
+                    <!-- Actions -->
+                    <td>
+
+                        <button class="edit-btn" (click)="editCoupon(c)">
+                            Edit
+                        </button>
+
                         <button class="delete-btn" (click)="deleteCoupon(c._id)">
                             Delete
                         </button>
+
                     </td>
 
                 </tr>

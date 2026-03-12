@@ -1,42 +1,72 @@
-.coupon-container {
+.coupon-page {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
+/* card */
+
+.coupon-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.coupon-card h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+/* form */
 
 .coupon-form {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
-.coupon-form input,
-.coupon-form select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* button */
 
 .create-btn {
   background: #16a085;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
+  padding: 10px 18px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .create-btn:hover {
   background: #13856d;
 }
 
-.table-wrapper {
-  overflow-x: auto;
-}
+/* table */
 
 .coupon-table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
 }
 
 .coupon-table th {
@@ -48,21 +78,45 @@
 
 .coupon-table td {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .coupon-table tr:hover {
-  background: #f5f5f5;
+  background: #f8f9fa;
 }
 
-.badge {
+/* badge */
+
+.type-badge {
   background: #3498db;
   color: white;
   padding: 4px 8px;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 12px;
-  text-transform: capitalize;
 }
+
+/* coupon code */
+
+.coupon-code {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* status */
+
+.status {
+  background: #2ecc71;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.status.expired {
+  background: #e74c3c;
+}
+
+/* delete */
 
 .delete-btn {
   background: #e74c3c;
@@ -73,6 +127,120 @@
   cursor: pointer;
 }
 
+.coupon-code-text {
+  font-weight: 700;
+  color: #1e3a34;
+  font-family: monospace;
+}
+
+.coupon-code-text {
+  font-weight: 600;
+  color: #2c3e50;
+  letter-spacing: 1px;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+}
+
 .delete-btn:hover {
   background: #c0392b;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.btn-create {
+  margin-top: 15px;
+  background: #16a085;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+/* Toggle */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ccc;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: #16a085;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
 }
