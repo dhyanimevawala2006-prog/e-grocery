@@ -73,8 +73,18 @@ export class Cart {
   }
 
   // APPLY COUPON
+  // APPLY COUPON
   applyCoupon() {
     const code = this.couponCode.trim().toUpperCase();
+
+    if (!code) {
+      alert('Enter Coupon Code');
+      return;
+    }
+
+    /* reset old coupon before applying new one */
+    this.discount = 0;
+    this.finalTotal = 0;
 
     const data = {
       code: code,
@@ -82,15 +92,19 @@ export class Cart {
       cartTotal: this.total,
     };
 
-    this.http.post('http://localhost:3000/api/coupon/apply', data).subscribe(
-      (res: any) => {
+    this.http.post('http://localhost:3000/api/coupon/apply', data).subscribe({
+      next: (res: any) => {
         this.discount = res.discount;
         this.finalTotal = res.finalTotal;
+
+        /* force UI refresh */
+        this.cdr.detectChanges();
       },
-      () => {
+
+      error: () => {
         alert('Invalid Coupon');
       },
-    );
+    });
   }
 
   // CHECKOUT FUNCTION

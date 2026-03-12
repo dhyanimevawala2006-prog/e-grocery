@@ -58,7 +58,7 @@
                 <div class="coupon-box mb-3">
                     <input type="text" placeholder="Enter Coupon Code" [(ngModel)]="couponCode" />
 
-                    <button (click)="applyCoupon()">
+                    <button type="button" (click)="applyCoupon()">
                         Apply
                     </button>
                 </div>
@@ -86,7 +86,7 @@
 
                 <div class="d-flex justify-content-between fw-bold fs-5">
                     <span>Grand Total</span>
-                    <span>₹ {{ (discount ? finalTotal : total) + 40 }}</span>
+                    <span>₹ {{ (total + 40) - discount }}</span>
                 </div>
 
                 <button class="checkout-btn mt-4" (click)="checkout()">
