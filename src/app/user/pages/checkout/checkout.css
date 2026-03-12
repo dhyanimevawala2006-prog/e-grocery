@@ -47,7 +47,9 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
   box-sizing: border-box;
 }
 
@@ -150,7 +152,9 @@ hr {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition:
+    background 0.3s,
+    transform 0.2s;
 }
 
 .order-btn:hover {
@@ -173,19 +177,19 @@ hr {
   .checkout-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .checkout-container {
     margin: 1rem auto;
   }
-  
+
   .card {
     padding: 1rem;
   }
-  
+
   .cart-item {
     flex-wrap: wrap;
   }
-  
+
   .price {
     min-width: auto;
   }
@@ -232,5 +236,66 @@ hr {
 /* Success States */
 .form-group.success input,
 .form-group.success textarea {
-  border-color: #00C851;
+  border-color: #00c851;
+}
+.coupon-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.coupon-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.apply-btn {
+  background: #00a86b;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.coupon-applied {
+  color: #00a86b;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* COUPON BOX */
+
+.coupon-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.coupon-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.apply-btn {
+  background: #00a86b;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background: #00945e;
+}
+
+.coupon-applied {
+  color: #00a86b;
+  font-weight: 600;
+  margin-bottom: 10px;
 }

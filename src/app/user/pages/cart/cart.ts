@@ -16,7 +16,7 @@ export class Cart {
   cartItems: any[] = [];
   total: number = 0;
 
-  userId = localStorage.getItem('id');
+  userId = sessionStorage.getItem('id');
 
   imageUrl = 'http://localhost:3000/upload/';
 
@@ -73,19 +73,11 @@ export class Cart {
   }
 
   // APPLY COUPON
-  applyCoupon(code: string) {
-    const coupon = code.trim();
-
-    // Debug line
-    console.log('Coupon:', coupon);
-
-    if (!coupon) {
-      alert('Enter Coupon Code');
-      return;
-    }
+  applyCoupon() {
+    const code = this.couponCode.trim().toUpperCase();
 
     const data = {
-      code: coupon,
+      code: code,
       userId: this.userId,
       cartTotal: this.total,
     };

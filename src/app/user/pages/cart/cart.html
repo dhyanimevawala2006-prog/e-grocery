@@ -56,13 +56,11 @@
 
                 <!-- COUPON BOX -->
                 <div class="coupon-box mb-3">
+                    <input type="text" placeholder="Enter Coupon Code" [(ngModel)]="couponCode" />
 
-                    <input #couponInput type="text" placeholder="Enter Coupon Code" />
-
-                    <button type="button" (click)="applyCoupon(couponInput.value)" [disabled]="discount > 0">
+                    <button (click)="applyCoupon()">
                         Apply
                     </button>
-
                 </div>
 
                 <div *ngIf="discount > 0" class="coupon-success">
