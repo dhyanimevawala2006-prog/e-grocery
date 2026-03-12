@@ -25,7 +25,7 @@ export class Checkout {
   address: string = '';
   city: string = '';
 
-  userId = sessionStorage.getItem('id');
+  userId = localStorage.getItem('id');
 
   imageUrl = 'http://localhost:3000/upload/';
 

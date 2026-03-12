@@ -29,7 +29,7 @@ export class Home {
 
   ngOnInit() {
     this.loadProduct();
-    this.user_id = sessionStorage.getItem('id');
+    this.user_id = localStorage.getItem('id');
   }
 
   loadProduct() {

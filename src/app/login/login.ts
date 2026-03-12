@@ -30,10 +30,10 @@ export class Login {
     this.u_service.login(this.frmGrp.value).subscribe({
       next: (res:any) => {
         alert(res.message);
-        sessionStorage.setItem("id",res.user.id);
-        sessionStorage.setItem("name",res.user.username);
-        sessionStorage.setItem("email",res.user.email);
-        sessionStorage.setItem("mobileno",res.user.mobileno);
+        localStorage.setItem("id",res.user.id);
+        localStorage.setItem("name",res.user.username);
+        localStorage.setItem("email",res.user.email);
+        localStorage.setItem("mobileno",res.user.mobileno);
 
         window.location.href="/";
       },

@@ -10,8 +10,6 @@ import { EditProductComponent } from './pages/edit-product/edit-product';
 import { AdminLogin } from './pages/admin-login/admin-login';
 import { adminAuthGuard } from './guards/admin-auth.guard';
 
-
-
 const routes: Routes = [
   {
     path: 'login',
@@ -29,7 +27,8 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadComponent: () => import('./pages/dashboard/dashboard').then((m) => m.DashboardComponent),
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard').then((m) => m.DashboardComponent),
       },
       {
         path: 'showproduct',
@@ -39,12 +38,16 @@ const routes: Routes = [
         path: 'addproduct',
         loadComponent: () => import('./pages/add-product/add-product').then((m) => m.AddProduct),
       },
-      {path:'allorder',component:Allorder},
+      { path: 'allorder', component: Allorder },
       {
         path: 'show-user',
         loadComponent: () => import('./pages/show-user/show-user').then((m) => m.ShowUser),
       },
-      { path:'editproduct/:id', component:EditProductComponent }
+      { path: 'editproduct/:id', component: EditProductComponent },
+      {
+        path: 'coupon',
+        loadComponent: () => import('./pages/coupon/coupon').then((m) => m.Coupon),
+      },
     ],
   },
 ];

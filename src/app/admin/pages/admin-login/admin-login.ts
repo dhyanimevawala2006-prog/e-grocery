@@ -35,11 +35,11 @@ export class AdminLogin {
 
       // Static admin credentials check
       if (email === 'dk@gmail.com' && password === 'dk2006') {
-        // Success - set session storage
-        sessionStorage.setItem('adminId', '1');
-        sessionStorage.setItem('adminName', 'DK Admin');
-        sessionStorage.setItem('adminEmail', email);
-        sessionStorage.setItem('adminRole', 'admin');
+        // Success - set local storage
+        localStorage.setItem('adminId', '1');
+        localStorage.setItem('adminName', 'DK Admin');
+        localStorage.setItem('adminEmail', email);
+        localStorage.setItem('adminRole', 'admin');
 
         alert('Admin login successful!');
         this.router.navigate(['/admin/dashboard']);

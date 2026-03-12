@@ -19,7 +19,7 @@ userId:any=""
 constructor(private wish:WishlistService){}
 
 ngOnInit(){
-  this.uid=sessionStorage.getItem("id");
+  this.uid=localStorage.getItem("id");
 
     if(!this.uid){
       this.isLoggedIn=false;
@@ -28,7 +28,7 @@ ngOnInit(){
     }
   
 
-this.userId = sessionStorage.getItem("id")
+this.userId = localStorage.getItem("id")
 
 // subscribe realtime count
 this.wish.wishlistCount.subscribe((count)=>{
@@ -57,7 +57,7 @@ console.log("clicked")
 
 logout(){
     if(confirm('are you sure you want to logout?')){
-      sessionStorage.clear();
+      localStorage.clear();
       window.location.href = '/login';
     }
   }

@@ -1,0 +1,79 @@
+<div class="coupon-container">
+
+    <h2>Create Coupon</h2>
+
+    <div class="coupon-form">
+
+        <input type="text" placeholder="Coupon Code" [(ngModel)]="couponData.code">
+
+        <select [(ngModel)]="couponData.discountType">
+            <option value="flat">Flat Discount</option>
+            <option value="percentage">Percentage</option>
+        </select>
+
+        <input type="number" placeholder="Discount Value" [(ngModel)]="couponData.discountValue">
+
+        <input type="number" placeholder="Min Order Amount" [(ngModel)]="couponData.minOrderAmount">
+
+        <input type="number" placeholder="Max Discount" [(ngModel)]="couponData.maxDiscount">
+
+        <input type="date" [(ngModel)]="couponData.expiryDate">
+
+        <button class="create-btn" (click)="createCoupon()">
+            Create Coupon
+        </button>
+
+    </div>
+
+    <hr>
+
+    <h2>All Coupons</h2>
+
+    <div class="table-wrapper">
+
+        <table class="coupon-table">
+
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Min Order</th>
+                    <th>Expiry</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let c of coupons; trackBy: trackById">
+
+                    <td>{{ c.code }}</td>
+
+                    <td>
+                        <span class="badge">
+                            {{ c.discountType }}
+                        </span>
+                    </td>
+
+                    <td>{{ c.discountValue }}</td>
+
+                    <td>₹{{ c.minOrderAmount }}</td>
+
+                    <td>{{ c.expiryDate | date:'mediumDate' }}</td>
+
+                    <td>
+                        <button class="delete-btn" (click)="deleteCoupon(c._id)">
+                            Delete
+                        </button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
