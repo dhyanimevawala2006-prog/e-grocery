@@ -320,17 +320,50 @@ hr {
   transform: translateY(0);
 }
 
+/* Coupon Box */
+
+.coupon-box {
+  display: flex;
+  gap: 10px;
+}
+
+.coupon-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.coupon-box button {
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.coupon-box button:hover {
+  background: #218838;
+}
+
+.coupon-success {
+  font-size: 14px;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
 /* Responsive Design */
 @media (max-width: 991px) {
   .col-lg-8 {
     padding-right: 0;
   }
-  
+
   .col-lg-4 {
     margin-top: 30px;
     position: static;
   }
-  
+
   .bill-card {
     margin-top: 20px;
   }
@@ -340,31 +373,31 @@ hr {
   h2 {
     font-size: 1.8rem;
   }
-  
+
   .cart-item {
     flex-wrap: wrap;
     gap: 15px;
   }
-  
+
   .food-img {
     width: 80px;
     height: 80px;
   }
-  
+
   .flex-grow-1.ms-3 {
     width: calc(100% - 95px);
     padding-right: 0;
   }
-  
+
   .d-flex.align-items-center.gap-3 {
     flex-wrap: wrap;
   }
-  
+
   .remove-btn {
     margin-left: 0;
     width: 100%;
   }
-  
+
   .price {
     width: 100%;
     text-align: left;
@@ -378,25 +411,25 @@ hr {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  
+
   .cart-item {
     padding: 15px;
   }
-  
+
   .food-img {
     width: 70px;
     height: 70px;
   }
-  
+
   .flex-grow-1.ms-3 {
     width: calc(100% - 85px);
   }
-  
+
   .price {
     margin-left: 85px;
     font-size: 1.2rem;
   }
-  
+
   .bill-card {
     padding: 20px;
   }

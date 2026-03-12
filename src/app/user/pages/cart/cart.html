@@ -1,83 +1,104 @@
 <div class="container my-5">
 
-<h2 class="fw-bold mb-4">🛍️ Your Food Cart</h2>
+    <h2 class="fw-bold mb-4">🛍️ Your Food Cart</h2>
 
-<div *ngIf="cartItems.length == 0" class="text-center py-5">
-<h3>Your cart looks empty</h3>
-<p>Explore our menu and add your favorite dishes 🍕</p>
-</div>
+    <div *ngIf="cartItems.length == 0" class="text-center py-5">
+        <h3>Your cart looks empty</h3>
+        <p>Explore our menu and add your favorite dishes 🍕</p>
+    </div>
 
-<div class="row">
+    <div class="row">
 
-<!-- CART ITEMS -->
-<div class="col-lg-8">
+        <!-- CART ITEMS -->
+        <div class="col-lg-8">
 
-<div class="cart-item d-flex align-items-center" *ngFor="let item of cartItems">
+            <div class="cart-item d-flex align-items-center" *ngFor="let item of cartItems">
 
-<img [src]="imageUrl + item.productId.pic" class="food-img">
+                <img [src]="imageUrl + item.productId.pic" class="food-img">
 
-<div class="flex-grow-1 ms-3">
+                <div class="flex-grow-1 ms-3">
 
-<h5>{{item.productId.name}}</h5>
+                    <h5>{{item.productId.name}}</h5>
 
-<p class="text-muted small">{{item.productId.description}}</p>
+                    <p class="text-muted small">{{item.productId.description}}</p>
 
-<div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-3">
 
-<div class="qty-box">
-<button (click)="decrease(item.productId._id)">−</button>
-<span>{{item.quantity}}</span>
-<button (click)="increase(item.productId._id)">+</button>
-</div>
+                        <div class="qty-box">
+                            <button (click)="decrease(item.productId._id)">−</button>
+                            <span>{{item.quantity}}</span>
+                            <button (click)="increase(item.productId._id)">+</button>
+                        </div>
 
-<button class="remove-btn" (click)="remove(item.productId._id)">
-Remove Item
-</button>
+                        <button class="remove-btn" (click)="remove(item.productId._id)">
+                            Remove Item
+                        </button>
 
-</div>
+                    </div>
 
-</div>
+                </div>
 
-<div class="price">
-₹ {{item.productId.price * item.quantity}}
-</div>
+                <div class="price">
+                    ₹ {{item.productId.price * item.quantity}}
+                </div>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<!-- BILL SUMMARY -->
-<div class="col-lg-4">
+        <!-- BILL SUMMARY -->
+        <!-- BILL SUMMARY -->
+        <div class="col-lg-4">
 
-<div class="bill-card">
+            <div class="bill-card">
 
-<h4 class="fw-bold mb-3">Order Summary</h4>
+                <h4 class="fw-bold mb-3">Order Summary</h4>
 
-<div class="d-flex justify-content-between mb-2">
-<span>Subtotal</span>
-<span>₹ {{total}}</span>
-</div>
+                <!-- COUPON BOX -->
+                <div class="coupon-box mb-3">
 
-<div class="d-flex justify-content-between mb-2">
-<span>Delivery Charges</span>
-<span>₹ 40</span>
-</div>
+                    <input #couponInput type="text" placeholder="Enter Coupon Code" />
 
-<hr>
+                    <button type="button" (click)="applyCoupon(couponInput.value)" [disabled]="discount > 0">
+                        Apply
+                    </button>
 
-<div class="d-flex justify-content-between fw-bold fs-5">
-<span>Grand Total</span>
-<span>₹ {{total + 40}}</span>
-</div>
+                </div>
 
-<button class="checkout-btn mt-4" (click)="checkout()">
-Place Order 🚀
-</button>
+                <div *ngIf="discount > 0" class="coupon-success">
+                    Coupon Applied : - ₹ {{discount}}
+                </div>
 
-</div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal</span>
+                    <span>₹ {{total}}</span>
+                </div>
 
-</div>
+                <div *ngIf="discount > 0" class="d-flex justify-content-between mb-2 text-success">
+                    <span>Coupon Discount</span>
+                    <span>- ₹ {{discount}}</span>
+                </div>
 
-</div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Delivery Charges</span>
+                    <span>₹ 40</span>
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-between fw-bold fs-5">
+                    <span>Grand Total</span>
+                    <span>₹ {{ (discount ? finalTotal : total) + 40 }}</span>
+                </div>
+
+                <button class="checkout-btn mt-4" (click)="checkout()">
+                    Place Order 🚀
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
