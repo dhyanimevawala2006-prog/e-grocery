@@ -1,0 +1,427 @@
+/* contact us */
+/* ===== CONTACT US SECTION STYLES ===== */
+
+/* Contact Section Container */
+#contact {
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact Info Cards - Matching your about-card style */
+#contact .about-card {
+    background: white;
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 20px 30px -10px rgba(0,30,0,0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#contact .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 35px -8px rgba(43,122,75,0.15);
+}
+
+/* Contact Info Items - Hover Cards */
+#contact .contact-info-item {
+    background: #f8fafb;
+    border-radius: 16px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+#contact .contact-info-item:hover {
+    background: #eaf5e7;
+    transform: translateX(5px);
+    border-color: rgba(45, 146, 125, 0.2);
+}
+
+/* Icon Glow - From your admin panel */
+#contact .icon-glow {
+    width: 45px;
+    height: 45px;
+    background: rgba(45, 146, 125, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#contact .contact-info-item:hover .icon-glow {
+    background: #2D927D;
+    transform: scale(1.1) rotate(5deg);
+}
+
+#contact .contact-info-item:hover .icon-glow i {
+    color: white !important;
+}
+
+/* Business Hours Card */
+#contact .hours-card {
+    background: #eaf5e7;
+    border-radius: 30px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+#contact .hours-card:hover {
+    border-color: #2D927D;
+    box-shadow: 0 15px 25px -8px rgba(45,146,125,0.2);
+}
+
+/* Form Input Fields - Matching pro-input-group */
+#contact .pro-input-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+#contact .pro-input-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+#contact .pro-input-group:focus-within label {
+    color: #2D927D;
+}
+
+#contact .pro-input-group input,
+#contact .pro-input-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid #edf2f1;
+    background: #fcfcfc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+#contact .pro-input-group textarea {
+    height: 150px;
+    resize: vertical;
+    min-height: 120px;
+    max-height: 250px;
+}
+
+#contact .pro-input-group input:focus,
+#contact .pro-input-group textarea:focus {
+    border-color: #2D927D;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(45, 146, 125, 0.05);
+    transform: translateY(-2px);
+}
+
+#contact .pro-input-group input::placeholder,
+#contact .pro-input-group textarea::placeholder {
+    color: #aab7b2;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Submit Button - Matching btn-ecolive */
+#contact .btn-ecolive {
+    background: #2D927D;
+    border: none;
+    color: white;
+    border-radius: 40px;
+    padding: 12px 32px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#contact .btn-ecolive:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+#contact .btn-ecolive:hover:before {
+    width: 300px;
+    height: 300px;
+}
+
+#contact .btn-ecolive:hover {
+    background: #1f5e39;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(45,146,125,0.3);
+}
+
+#contact .btn-ecolive:active {
+    transform: translateY(-1px);
+}
+
+/* Social Action Cards - Matching your action-card */
+#contact .action-card {
+    width: 45px;
+    height: 45px;
+    background: #f4f7f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2D927D;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    border: 1px solid rgba(45,146,125,0.1);
+}
+
+#contact .action-card:hover {
+    background: #2D927D;
+    color: white;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 15px rgba(45,146,125,0.3);
+    border-color: transparent;
+}
+
+/* Map Card */
+#contact .map-card {
+    background: white;
+    border-radius: 30px;
+    padding: 0.75rem;
+    box-shadow: 0 20px 30px -10px rgba(0,30,0,0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#contact .map-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 35px -8px rgba(45,146,125,0.15);
+}
+
+#contact .map-image {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 200px;
+    background: #eaf5e7;
+    position: relative;
+}
+
+#contact .map-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+#contact .map-card:hover .map-image img {
+    transform: scale(1.05);
+}
+
+/* Map Location Badge */
+#contact .map-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(45,146,125,0.9);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    border: 2px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#contact .map-card:hover .map-badge {
+    opacity: 1;
+}
+
+/* Response Time Badge */
+#contact .response-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 1rem;
+    background: #eaf5e7;
+    border-radius: 40px;
+    color: #2D927D;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#contact .response-badge:hover {
+    background: #2D927D;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Section Title Enhancement */
+#contact .section-title {
+    border-left: 10px solid #2D927D;
+    padding-left: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#contact .section-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #2D927D;
+    transition: width 0.4s ease;
+}
+
+#contact .section-title:hover:after {
+    width: 100px;
+}
+
+/* Form Success/Error States */
+#contact .input-success {
+    border-color: #2D927D !important;
+    background: #f0f9f4 !important;
+}
+
+#contact .input-error {
+    border-color: #ef4444 !important;
+    background: #fff5f5 !important;
+}
+
+#contact .error-message {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    padding-left: 1rem;
+    font-weight: 500;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Loading State for Button */
+#contact .btn-ecolive.loading {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+#contact .btn-ecolive.loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    #contact .about-card {
+        padding: 1.5rem;
+    }
+    
+    #contact .section-title {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #contact .contact-info-item {
+        padding: 0.75rem;
+    }
+    
+    #contact .icon-glow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #contact .btn-ecolive {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    #contact .response-badge {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    #contact .section-title {
+        font-size: 1.75rem !important;
+        border-left-width: 8px;
+        padding-left: 1rem;
+    }
+    
+    #contact .pro-input-group input,
+    #contact .pro-input-group textarea {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark Mode Support (if you ever need it) */
+@media (prefers-color-scheme: dark) {
+    #contact .about-card {
+        background: #1f2a26;
+        color: white;
+    }
+    
+    #contact .contact-info-item {
+        background: #2a3630;
+    }
+    
+    #contact .contact-info-item:hover {
+        background: #2D927D;
+    }
+    
+    #contact .contact-info-item span:not(.text-leaf) {
+        color: #ddd !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    #contact {
+        page-break-inside: avoid;
+    }
+    
+    #contact .btn-ecolive,
+    #contact .action-card {
+        display: none;
+    }
+}

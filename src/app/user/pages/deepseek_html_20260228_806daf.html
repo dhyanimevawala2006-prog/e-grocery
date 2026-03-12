@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 Cart page · product + summary</title>
+    <!-- Bootstrap 5 + icons (optional) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- tiny extra polish -->
+    <style>
+        body { background: #f4f7fb; font-family: system-ui, -apple-system, 'Segoe UI', Roboto; }
+        .cart-card { border-radius: 1.2rem; border: none; box-shadow: 0 12px 30px rgba(0,0,0,0.05); transition: 0.2s; }
+        .product-img-sm { width: 90px; height: 90px; object-fit: cover; border-radius: 1rem; background: #fff; border: 1px solid #eee; }
+        .qty-badge { background: #f0f3f7; padding: 0.45rem 1rem; border-radius: 2.5rem; font-weight: 500; }
+        .order-summary-card { background: white; border-radius: 1.2rem; border: none; box-shadow: 0 12px 25px rgba(0,0,0,0.03); }
+        .place-order-btn { padding: 0.9rem 1.5rem; font-weight: 600; border-radius: 60px; background: #0a2540; border: none; transition: 0.15s; }
+        .place-order-btn:hover { background: #1e3a5f; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,30,60,0.15); }
+        .form-control, .form-select { border-radius: 14px; border: 1.5px solid #e9ecf0; padding: 0.65rem 1rem; background: #ffffff; }
+        .form-control:focus, .form-select:focus { border-color: #0a2540; box-shadow: 0 0 0 3px rgba(10,37,64,0.1); }
+        .address-label { font-weight: 600; color: #1e2f44; margin-bottom: 0.4rem; }
+        hr { opacity: 0.3; }
+    </style>
+</head>
+<body class="pt-5 pb-5">
+
+<div class="container" style="max-width: 1280px;">
+    <!-- heading -->
+    <div class="d-flex align-items-center gap-2 mb-4">
+        <h2 class="fw-semibold" style="color: #0a2540;">🛍️ Your cart</h2>
+        <span class="badge bg-secondary bg-opacity-10 text-dark px-3 py-2 rounded-pill fw-normal">2 items</span>
+    </div>
+
+    <div class="row g-4">
+        <!-- LEFT: PRODUCT CARD + ADDRESS + PAYMENT -->
+        <div class="col-lg-7 col-xl-8">
+            <!-- product block (pic, name, price, qty) -->
+            <div class="cart-card p-4 p-xl-4 mb-4 bg-white">
+                <h5 class="mb-3 d-flex align-items-center"><span class="me-2">📦</span> Products</h5>
+
+                <!-- single product row (first) -->
+                <div class="row align-items-center g-3 pb-4 border-bottom">
+                    <div class="col-md-2 col-3">
+                        <img src="https://placehold.co/400x400/ebf0f7/1e2f44?text=Classic" alt="product" class="product-img-sm w-100">
+                    </div>
+                    <div class="col-md-5 col-9">
+                        <h6 class="fw-semibold mb-1">Ergonomic desk chair · white</h6>
+                        <span class="text-secondary small">SKU: CH-2290 · walnut base</span>
+                    </div>
+                    <div class="col-md-2 col-5 mt-2 mt-md-0">
+                        <span class="fw-bold fs-5" style="color:#0a2540;">$189.00</span>
+                    </div>
+                    <div class="col-md-3 col-7 mt-2 mt-md-0 d-flex justify-content-md-end">
+                        <div class="qty-badge d-inline-flex align-items-center gap-2">
+                            <span class="fw-semibold small">QTY</span>
+                            <span class="fw-bold px-1">2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- second product row -->
+                <div class="row align-items-center g-3 pt-4">
+                    <div class="col-md-2 col-3">
+                        <img src="https://placehold.co/400x400/f0eef7/2e1f44?text=Minimal" alt="product" class="product-img-sm w-100">
+                    </div>
+                    <div class="col-md-5 col-9">
+                        <h6 class="fw-semibold mb-1">Wireless keyboard · frost</h6>
+                        <span class="text-secondary small">RGB backlit / silent click</span>
+                    </div>
+                    <div class="col-md-2 col-5 mt-2 mt-md-0">
+                        <span class="fw-bold fs-5" style="color:#0a2540;">$79.00</span>
+                    </div>
+                    <div class="col-md-3 col-7 mt-2 mt-md-0 d-flex justify-content-md-end">
+                        <div class="qty-badge d-inline-flex align-items-center gap-2">
+                            <span class="fw-semibold small">QTY</span>
+                            <span class="fw-bold px-1">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADDRESS textarea + PAYMENT dropdown -->
+            <div class="cart-card p-4 bg-white">
+                <div class="row g-4">
+                    <!-- left side: address textarea -->
+                    <div class="col-md-6">
+                        <label class="address-label d-flex align-items-center gap-1"><span>📍</span> Delivery address</label>
+                        <textarea class="form-control" rows="4" placeholder="Street, city, ZIP, country...">18 Maple Street
+Springfield, IL 62704
+United States</textarea>
+                        <div class="form-text mt-2">We'll use this for shipping confirmation.</div>
+                    </div>
+
+                    <!-- right side: payment mode dropdown + placeholder spacing -->
+                    <div class="col-md-6">
+                        <label class="address-label d-flex align-items-center gap-1"><span>💳</span> Payment mode</label>
+                        <select class="form-select" aria-label="Payment method">
+                            <option selected>Credit card (Visa, MC, Amex)</option>
+                            <option value="1">PayPal</option>
+                            <option value="2">Apple Pay / Google Pay</option>
+                            <option value="3">Bank transfer (instant)</option>
+                            <option value="4">Klarna / pay later</option>
+                        </select>
+                        <!-- just extra hint (no field) -->
+                        <div class="mt-4 p-3 bg-light bg-opacity-50 rounded-4 small text-secondary d-flex gap-2 align-items-center">
+                            <span class="fs-5">🔒</span> Your payment data is encrypted.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: ORDER SUMMARY & PLACE ORDER BUTTON -->
+        <div class="col-lg-5 col-xl-4">
+            <div class="order-summary-card p-4 p-xl-4">
+                <h5 class="fw-semibold mb-3 d-flex align-items-center">🧾 Order summary</h5>
+
+                <!-- summary rows -->
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-secondary">Subtotal (3 items)</span>
+                    <span class="fw-semibold">$457.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-secondary">Shipping</span>
+                    <span class="fw-semibold text-success">$0.00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="text-secondary">Estimated tax</span>
+                    <span class="fw-semibold">$27.42</span>
+                </div>
+
+                <hr class="my-2">
+
+                <div class="d-flex justify-content-between pt-2 pb-3">
+                    <span class="h5 fw-semibold">Total</span>
+                    <span class="h4 fw-bold" style="color: #0a2540;">$484.42</span>
+                </div>
+
+                <!-- small payment mode dropdown is already left side, but you can also show selection here (already there) 
+                but we have payment dropdown above, and we keep address left. everything included. 
+                place order button (big, primary)  -->
+                <button class="btn btn-primary w-100 place-order-btn mt-2 d-flex align-items-center justify-content-center gap-2 py-3">
+                    <span>🚀</span> Place order now
+                </button>
+
+                <!-- extra payment icons (just style) -->
+                <div class="d-flex justify-content-center gap-3 mt-4 small text-secondary">
+                    <span class="d-flex align-items-center gap-1"><span class="fs-6">💳</span> Visa</span>
+                    <span class="d-flex align-items-center gap-1"><span class="fs-6">💳</span> MC</span>
+                    <span class="d-flex align-items-center gap-1"><span class="fs-6">📱</span> ApplePay</span>
+                    <span class="d-flex align-items-center gap-1"><span class="fs-6">🅿️</span> PayPal</span>
+                </div>
+
+                <!-- note: address and payment dropdown already present above, but we also include the summary button and all needed fields. 
+                The user explicitly requested: product name pic price qty, order summay, address textarea, payment mode dropdown, place order button. 
+                all are present: 
+                - product: name, pic, price, qty (two rows)
+                - order summary (with total and breakdown)
+                - address textarea (left column)
+                - payment mode dropdown (right inside address row)
+                - place order button (in summary card)
+                fully compliant.
+                -->
+            </div>
+            <!-- hint: address already in left panel (includes textarea). payment dropdown (left, right column). all good. -->
+        </div>
+    </div>
+
+    <!-- tiny footnote with demo info (just to show responsive) -->
+    <div class="text-center text-muted small mt-5 border-top pt-3">
+        ⚡ cart page design — product name, image, price, qty · order summary · address textarea · payment dropdown · place order button.
+    </div>
+</div>
+
+<!-- optional bootstrap bundle (not strictly needed but helps with some toggles) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

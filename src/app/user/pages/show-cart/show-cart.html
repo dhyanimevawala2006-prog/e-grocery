@@ -1,0 +1,147 @@
+
+
+
+<!-- Navbar with enhanced CSS and search bar -->
+<nav class="navbar navbar-expand-lg py-3 fixed-navbar">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-3" href="#">
+      <i class="bi bi-brightness-alt-highlight-fill text-leaf me-2"></i>Ecolive<span class="text-leaf">®</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link" href="#about">About us</a></li>
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link" href="#">Products</a></li>
+        <!-- MART LINK REMOVED -->
+      </ul>
+      
+      <!-- SEARCH BAR WITH ANIMATION -->
+      <div class="search-container me-3">
+        <div class="search-bar">
+          <i class="bi bi-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search fresh products...">
+          <button class="search-btn"><i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+      
+      <div class="d-flex gap-2 align-items-center">
+        <a href="#" class="btn btn-outline-ecolive rounded-pill btn-hover"><i class="bi bi-person me-1"></i>Login/Reg</a>
+        <a href="#" class="btn btn-ecolive rounded-pill position-relative btn-hover">
+          <i class="bi bi-cart4"></i> Cart <span class="badge bg-warning text-dark rounded-pill ms-1"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Main Cart Page Content -->
+<main class="container py-4 py-md-5">
+    <!-- page title -->
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h2 class="section-title mb-0">Your shopping cart</h2>
+        <span class="bg-leaf-soft text-leaf px-4 py-2 rounded-pill fw-semibold">1 item</span>
+    </div>
+
+    <!-- cart table -->
+    <div class="cart-table-wrapper">
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Sr no</th>
+                    <th>Product Name</th>
+                    <th>pic</th>
+                    <th>price</th>
+                    <th>Qty</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="fw-semibold">1</span></td>
+                    <td><span class="fw-semibold">pen</span></td>
+                    <td>
+                        <div class="product-img-placeholder">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                    </td>
+                    <td><span class="price-cart">₹20.00</span></td>
+                    <td><span class="qty-badge">2</span></td>
+                    <td>
+                        <button class="remove-btn"><i class="fas fa-trash-alt"></i> Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- coupon + category circles -->
+    <div class="row mt-5 g-4 align-items-stretch">
+        <!-- coupon section -->
+        <div class="col-md-5">
+            <div class="coupon-section p-4 h-100 d-flex flex-column justify-content-center">
+                <h5 class="fw-bold text-leaf">🎁 Special coupon</h5>
+                <p class="mb-2 small text-secondary">Use code at checkout</p>
+                <div class="coupon-code w-auto d-inline-flex align-self-start">
+                    ECO20SAVE
+                </div>
+                <p class="mt-3 mb-0 small fst-italic text-leaf">Get 20% off on stationery</p>
+            </div>
+        </div>
+
+        <!-- category circles -->
+        <div class="col-md-7">
+            <div class="bg-white p-3 p-xl-4 rounded-5 shadow-sm h-100 d-flex flex-wrap align-items-center justify-content-around">
+                <div class="category-circle-item">
+                    <img src="https://placehold.co/85x85/eaf5e7/2b7a4b?text=✒️" alt="pen" class="category-circle">
+                    <span>Pens</span>
+                </div>
+                <div class="category-circle-item">
+                    <img src="https://placehold.co/85x85/eaf5e7/2b7a4b?text=📒" alt="notebook" class="category-circle">
+                    <span>Notebooks</span>
+                </div>
+                <div class="category-circle-item">
+                    <img src="https://placehold.co/85x85/eaf5e7/2b7a4b?text=✂️" alt="craft" class="category-circle">
+                    <span>Craft</span>
+                </div>
+                <div class="category-circle-item">
+                    <img src="https://placehold.co/85x85/eaf5e7/2b7a4b?text=📏" alt="tools" class="category-circle">
+                    <span>Tools</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cart summary - NOW CENTERED -->
+    <div class="cart-summary-section">
+        <div class="about-card p-4">
+            <h5 class="fw-bold text-leaf text-center">Cart total</h5>
+            <div class="d-flex justify-content-between border-bottom pb-2">
+                <span>Subtotal (1 item)</span>
+                <span class="fw-bold">₹20.00</span>
+            </div>
+            <div class="d-flex justify-content-between mt-2 small">
+                <span>Shipping</span>
+                <span class="text-leaf">free</span>
+            </div>
+            <hr class="my-3">
+            <div class="d-flex justify-content-between fw-bold fs-5">
+                <span>Total</span>
+                <span class="text-leaf">₹20.00</span>
+            </div>
+            <button class="btn-ecolive w-100 mt-4 py-3">Proceed to checkout →</button>
+            <button class="btn-outline-ecolive w-100 mt-2 py-2">Continue shopping</button>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer-bg mt-5 py-5 px-3 text-center">
+    <div class="container">
+        <p class="mb-0 small">© 2025 Shoa Mart — fresh & earthy.</p>
+        <p class="mb-0 small text-leaf-soft">🌱 all items sustainable</p>
+    </div>
+</footer>
+
+

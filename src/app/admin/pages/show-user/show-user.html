@@ -1,0 +1,69 @@
+<div class="table-container-pro">
+    <div class="table-header-flex">
+        <div class="title-meta">
+            <h3 class="table-title">User Management</h3><br>
+
+            <div class="search-area">
+            <div class="search-card">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search orders, stock or customers..." [(ngModel)]="searchText">
+            </div>
+        </div>
+            <p class="subtitle">Manage and monitor your registered customers</p>
+        </div>
+        <button class="btn-add-pro">
+            <i class="fa-solid fa-user-plus"></i> Show User
+            
+        </button>
+    </div>
+    
+    <div class="glass-table-wrapper">
+        <table class="custom-pro-table">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>User Profile</th>
+                    <th>Email Address</th>
+                    <th>Mobile No</th>
+                    <th>Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr class="" *ngFor="let u of users;let i =index">
+                    <td scope="row">{{i+1}}</td>
+                    <td>{{u.username}}</td>
+                    
+                    <td>{{u.email}}</td>
+                    <td>{{u.mobileno}}</td>
+                    
+                    
+                </tr> -->
+                <tr *ngFor="let u of users | search:searchText; let i = index">
+                    <td scope="row">{{i+1}}</td>
+                    <td>
+                        <div class="user-profile-info">
+                            <div class="user-avatar-box">
+                                <img src="https://ui-avatars.com/api/?name=Zeeshan+Khan&background=2D927D&color=fff" alt="user">
+                            </div>
+                            <div class="user-details">
+                                <span class="u-name">{{u.username}}</span>
+                                <!-- <span class="u-id">ID: #USR-102</span> -->
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="email-text">{{u.email}}</span></td>
+                    <td><span class="mobile-text">{{u.mobileno}}</span></td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td>
+                        <div class="action-btns-flex">
+                            <button class="view-btn" title="View Details"><i class="fa-solid fa-eye"></i></button>
+                            <button class="edit-btn" title="Edit User"><i class="fa-solid fa-user-pen"></i></button>
+                            <button class="delete-btn" title="Delete User"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

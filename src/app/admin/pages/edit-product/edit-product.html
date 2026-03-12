@@ -1,0 +1,152 @@
+
+<div class="edit-product-container">
+  <div class="header">
+    <h1>Edit Product</h1>
+    <p class="product-id" *ngIf="productId">Product ID: {{ productId }}</p>
+  </div>
+
+  <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()" class="edit-product-form">
+    
+    <!-- General Information Section -->
+    <div class="form-section">
+      <h2 class="section-title">General Information</h2>
+      
+      <div class="form-group">
+        <label for="productName" class="form-label">
+          PRODUCT OFFICIAL NAME
+          <span class="required-indicator">*</span>
+        </label>
+        <input 
+          type="text" 
+          id="productName" 
+          class="form-control" 
+          formControlName="productName"
+          placeholder="e.g. Premium Hass Avocado"
+          [class.is-invalid]="productName?.invalid && productName?.touched"
+        >
+        <div class="field-note">This field is required</div>
+        <div class="error-message" *ngIf="productName?.invalid && productName?.touched">
+          <span *ngIf="productName?.errors?.['required']">Product name is required</span>
+          <span *ngIf="productName?.errors?.['minlength']">Minimum 3 characters required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="category" class="form-label">
+          CATEGORY SELECTION
+          <span class="required-indicator">*</span>
+        </label>
+        <select 
+          id="category" 
+          class="form-control" 
+          formControlName="category"
+          [class.is-invalid]="category?.invalid && category?.touched"
+        >
+          <option value="" disabled selected>Select a category</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+        <div class="field-note">This field is required</div>
+        <div class="error-message" *ngIf="category?.invalid && category?.touched">
+          Category selection is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="form-label">
+          PROFESSIONAL DESCRIPTION
+          <span class="required-indicator">*</span>
+        </label>
+        <textarea 
+          id="description" 
+          class="form-control" 
+          formControlName="description"
+          rows="4"
+          placeholder="Describe the origin and quality..."
+          [class.is-invalid]="description?.invalid && description?.touched"
+        ></textarea>
+        <div class="field-note">Describe the origin and quality...</div>
+        <div class="error-message" *ngIf="description?.invalid && description?.touched">
+          Description is required
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Media Section -->
+    <div class="form-section">
+      <h2 class="section-title">Product Media</h2>
+      
+      <div class="media-upload-container">
+        <!-- File Input Method -->
+        <div class="file-input-wrapper">
+          <label for="productImage" class="file-input-label">
+            Choose File
+          </label>
+          <input 
+            type="file" 
+            id="productImage" 
+            class="file-input" 
+            accept="image/png, image/webp, image/jpeg"
+            (change)="onFileSelected($event)"
+          >
+          <span class="file-name">{{ selectedImage ? selectedImage.name : 'No file chosen' }}</span>
+        </div>
+
+        <!-- Drag & Drop Area -->
+        <div 
+          class="drag-drop-area"
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave($event)"
+          (drop)="onDrop($event)"
+        >
+          <div class="drag-drop-content" *ngIf="!imagePreview">
+            <div class="upload-icon">📁</div>
+            <p>Drag images here or <span class="browse-link">Browse</span></p>
+            <p class="upload-limits">Max: 10MB (PNG, WebP)</p>
+          </div>
+
+          <!-- Image Preview -->
+          <div class="image-preview" *ngIf="imagePreview">
+            <img [src]="imagePreview" width="150" height="150" alt="Product preview">
+            <button type="button" class="remove-image" (click)="removeImage()">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing & Stock Section -->
+    <div class="form-section">
+      <h2 class="section-title">Pricing & Stock</h2>
+      
+      <div class="form-group">
+        <label for="price" class="form-label">
+          PRICE (₹)
+          <span class="required-indicator">*</span>
+        </label>
+        <div class="price-input-wrapper">
+          <span class="currency-symbol">₹</span>
+          <input 
+            type="number" 
+            id="price" 
+            class="form-control price-input" 
+            formControlName="price"
+            step="0.01"
+            min="0"
+            [class.is-invalid]="price?.invalid && price?.touched"
+          >
+        </div>
+        <div class="error-message" *ngIf="price?.invalid && price?.touched">
+          <span *ngIf="price?.errors?.['required']">Price is required</span>
+          <span *ngIf="price?.errors?.['min']">Price must be greater than 0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      <button type="submit" class="btn btn-primary" [disabled]="editProductForm.invalid">
+        Update Product
+      </button>
+    </div>
+  </form>
+</div>

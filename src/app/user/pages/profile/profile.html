@@ -1,0 +1,286 @@
+<div class="grocery-profile">
+  <!-- Header with gradient -->
+  <!-- <div class="profile-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="header-title">
+          <span class="fresh-icon">🥬</span>
+          My Green Basket
+        </h1>
+        <p class="header-subtitle">Fresh groceries, delivered with care</p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="profile-layout">
+      <!-- Sidebar -->
+      <div class="profile-sidebar">
+        <div class="sidebar-card">
+          <div class="user-info">
+            <div class="avatar-wrapper">
+              <img src="https://ui-avatars.com/api/?name={{userData.firstName}}+{{userData.lastName}}&size=120&background=2ecc71&color=fff&bold=true" 
+                   alt="Profile" 
+                   class="avatar">
+              <button class="change-photo-btn" *ngIf="activeTab === 'profile' && isEditing">
+                <span>📷</span>
+              </button>
+            </div>
+            <h3 class="user-name">{{userData.firstName}} {{userData.lastName}}</h3>
+            <!-- <span class="member-badge">
+              <span class="badge-icon">⭐</span>
+              Gold Member
+            </span> -->
+          </div>
+
+          <div class="sidebar-menu">
+            <button class="menu-item" [class.active]="activeTab === 'profile'" (click)="setActiveTab('profile')">
+              <span class="menu-icon">👤</span>
+              Profile Information
+            </button>
+            <!-- <button class="menu-item" [class.active]="activeTab === 'orders'" (click)="setActiveTab('orders')">
+              <span class="menu-icon">📦</span>
+              Order History
+            </button>
+            <button class="menu-item" [class.active]="activeTab === 'wishlist'" (click)="setActiveTab('wishlist')">
+              <span class="menu-icon">❤️</span>
+              Wishlist
+            </button>
+            <button class="menu-item" [class.active]="activeTab === 'settings'" (click)="setActiveTab('settings')">
+              <span class="menu-icon">⚙️</span>
+              Settings
+            </button> -->
+          </div>
+
+          <!-- <div class="sidebar-stats">
+            <div class="stat-item">
+              <span class="stat-value">15</span>
+              <span class="stat-label">Orders</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">8</span>
+              <span class="stat-label">Wishlist</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">💚</span>
+              <span class="stat-label">Eco Points</span>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="profile-main">
+        <!-- Profile Tab -->
+        <div class="content-card" *ngIf="activeTab === 'profile'">
+          <div class="card-header">
+            <h2 class="card-title">Profile Information</h2>
+            <!-- <button *ngIf="!isEditing" class="edit-btn" (click)="toggleEdit()">
+              <span class="btn-icon">✏️</span>
+              Edit Profile
+            </button> -->
+            <!-- <div *ngIf="isEditing" class="action-buttons">
+              <button class="save-btn" (click)="saveChanges()" [disabled]="!profileForm.valid">
+                <span class="btn-icon">✓</span>
+                Save Changes
+              </button>
+              <button class="cancel-btn" (click)="cancelEdit()">
+                <span class="btn-icon">✕</span>
+                Cancel
+              </button>
+            </div> -->
+          </div>
+
+          <form [formGroup]="profileForm" class="profile-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" 
+                       class="form-input" 
+                       formControlName="firstName"
+                       [readonly]="!isEditing"
+                       [class.error]="firstName?.invalid && firstName?.touched">
+                <div class="error-message" *ngIf="firstName?.invalid && firstName?.touched">
+                  Please enter your first name
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" 
+                       class="form-input" 
+                       formControlName="lastName"
+                       [readonly]="!isEditing"
+                       [class.error]="lastName?.invalid && lastName?.touched">
+                <div class="error-message" *ngIf="lastName?.invalid && lastName?.touched">
+                  Please enter your last name
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" 
+                       class="form-input" 
+                       formControlName="email"
+                       [readonly]="!isEditing"
+                       [class.error]="email?.invalid && email?.touched">
+                <div class="error-message" *ngIf="email?.invalid && email?.touched">
+                  Please enter a valid email
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" 
+                       class="form-input" 
+                       formControlName="phone"
+                       [readonly]="!isEditing"
+                       [class.error]="phone?.invalid && phone?.touched">
+                <div class="error-message" *ngIf="phone?.invalid && phone?.touched">
+                  Please enter a valid phone number
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="form-section">
+              <h3 class="section-title">Delivery Address</h3>
+              
+              <div class="form-group full-width">
+                <label class="form-label">Street Address</label>
+                <input type="text" 
+                       class="form-input" 
+                       formControlName="address"
+                       [readonly]="!isEditing"
+                       [class.error]="address?.invalid && address?.touched">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">City</label>
+                  <input type="text" 
+                         class="form-input" 
+                         formControlName="city"
+                         [readonly]="!isEditing"
+                         [class.error]="city?.invalid && city?.touched">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">State</label>
+                  <input type="text" 
+                         class="form-input" 
+                         formControlName="state"
+                         [readonly]="!isEditing"
+                         [class.error]="state?.invalid && state?.touched">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">ZIP Code</label>
+                  <input type="text" 
+                         class="form-input" 
+                         formControlName="zipCode"
+                         [readonly]="!isEditing"
+                         [class.error]="zipCode?.invalid && zipCode?.touched">
+                </div>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">Delivery Instructions</label>
+                <textarea class="form-input" 
+                          formControlName="deliveryInstructions"
+                          [readonly]="!isEditing"
+                          rows="3"></textarea>
+              </div>
+            </div> -->
+          </form>
+        </div>
+
+        <!-- Orders Tab -->
+        <div class="content-card" *ngIf="activeTab === 'orders'">
+          <h2 class="card-title">Recent Orders</h2>
+          
+          <div class="orders-list">
+            <div class="order-item" *ngFor="let order of recentOrders">
+              <div class="order-header">
+                <span class="order-id">{{order.id}}</span>
+                <span class="order-date">{{order.date | date:'mediumDate'}}</span>
+              </div>
+              <div class="order-details">
+                <div class="order-info">
+                  <span class="order-items">{{order.items}} items</span>
+                  <span class="order-total">${{order.total.toFixed(2)}}</span>
+                </div>
+                <span class="order-status" [ngClass]="getStatusClass(order.status)">
+                  {{order.status | titlecase}}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <button class="view-all-btn">View All Orders →</button>
+        </div>
+
+        <!-- Wishlist Tab -->
+        <div class="content-card" *ngIf="activeTab === 'wishlist'">
+          <h2 class="card-title">My Wishlist</h2>
+          
+          <div class="wishlist-grid">
+            <div class="wishlist-item" *ngFor="let item of wishlistItems">
+              <div class="item-image">
+                <div class="image-placeholder">🥑</div>
+              </div>
+              <div class="item-details">
+                <h4 class="item-name">{{item.name}}</h4>
+                <p class="item-price">${{item.price.toFixed(2)}}</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="content-card" *ngIf="activeTab === 'settings'">
+          <h2 class="card-title">Account Settings</h2>
+          
+          <div class="settings-section">
+            <h3 class="section-title">Notification Preferences</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <span class="setting-name">Order Updates</span>
+                <span class="setting-desc">Receive notifications about your orders</span>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <span class="setting-name">Promotional Emails</span>
+                <span class="setting-desc">Get updates about special offers</span>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <span class="setting-name">Weekly Newsletter</span>
+                <span class="setting-desc">Receive our curated grocery picks</span>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

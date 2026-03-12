@@ -1,0 +1,471 @@
+/* Main Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.my-5 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Header Styles */
+h2 {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+  border-radius: 2px;
+}
+
+/* Empty Cart Styles */
+.text-center.py-5 {
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+  border-radius: 20px;
+  padding: 60px 20px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.text-center.py-5 h3 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.text-center.py-5 p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Cart Items Section */
+.col-lg-8 {
+  padding-right: 20px;
+}
+
+/* Individual Cart Item */
+.cart-item {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(180deg, #ff6b6b, #ffb347);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cart-item:hover:before {
+  opacity: 1;
+}
+
+/* Food Image */
+.food-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.food-img:hover {
+  transform: scale(1.05);
+}
+
+/* Item Details */
+.flex-grow-1.ms-3 {
+  padding-right: 15px;
+}
+
+h5 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.text-muted.small {
+  color: #95a5a6 !important;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Quantity Box */
+.qty-box {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 30px;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.qty-box button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: white;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.qty-box button:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: scale(1.1);
+}
+
+.qty-box button:active {
+  transform: scale(0.95);
+}
+
+.qty-box span {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+/* Remove Button */
+.remove-btn {
+  background: none;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.remove-btn:hover {
+  background: #ff6b6b;
+  color: white;
+  border-color: #ff6b6b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+/* Price */
+.price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  min-width: 100px;
+  text-align: right;
+  position: relative;
+}
+
+.price:before {
+  content: '₹';
+  font-size: 1rem;
+  color: #95a5a6;
+  margin-right: 2px;
+}
+
+/* Bill Summary Card */
+.col-lg-4 {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.bill-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.bill-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #ff6b6b10 0%, #ffb34710 100%);
+  border-radius: 50%;
+  transform: translate(50px, -50px);
+}
+
+.bill-card h4 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.bill-card h4:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #ffb347);
+  border-radius: 2px;
+}
+
+/* Bill Details */
+.d-flex.justify-content-between {
+  color: #34495e;
+  font-size: 1rem;
+  padding: 8px 0;
+}
+
+.d-flex.justify-content-between.mb-2 span:last-child {
+  font-weight: 600;
+}
+
+hr {
+  margin: 15px 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+}
+
+.fs-5 {
+  font-size: 1.3rem !important;
+  color: #2c3e50;
+  margin-top: 10px;
+}
+
+/* Checkout Button */
+.checkout-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #ff6b6b, #ffb347);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.checkout-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.checkout-btn:hover:before {
+  left: 100%;
+}
+
+.checkout-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .col-lg-8 {
+    padding-right: 0;
+  }
+  
+  .col-lg-4 {
+    margin-top: 30px;
+    position: static;
+  }
+  
+  .bill-card {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cart-item {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .food-img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .flex-grow-1.ms-3 {
+    width: calc(100% - 95px);
+    padding-right: 0;
+  }
+  
+  .d-flex.align-items-center.gap-3 {
+    flex-wrap: wrap;
+  }
+  
+  .remove-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .price {
+    width: 100%;
+    text-align: left;
+    margin-left: 95px;
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-5 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cart-item {
+    padding: 15px;
+  }
+  
+  .food-img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .flex-grow-1.ms-3 {
+    width: calc(100% - 85px);
+  }
+  
+  .price {
+    margin-left: 85px;
+    font-size: 1.2rem;
+  }
+  
+  .bill-card {
+    padding: 20px;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cart-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.checkout-btn:focus {
+  animation: pulse 1s infinite;
+}
+
+/* Loading State (optional) */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff6b6b, #ffb347);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff5252, #ffa534);
+}

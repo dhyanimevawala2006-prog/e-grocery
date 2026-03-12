@@ -1,0 +1,70 @@
+<div class="admin-orders">
+
+<h2>All Orders</h2><br>
+
+<div class="search-area">
+            <div class="search-card">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search orders, stock or customers..." [(ngModel)]="searchText">
+            </div>
+        </div><br>
+
+<div class="order-card" *ngFor="let order of orders | search :searchText; let i = index">
+<div class="order-header">
+
+<span>Order ID : {{order._id}}</span>
+
+<select
+[(ngModel)]="order.status"
+(change)="updateStatus(order._id,order.status)"
+>
+
+<option>Pending</option>
+<option>Preparing</option>
+<option>Out for Delivery</option>
+<option>Delivered</option>
+
+</select>
+
+</div>
+
+<div class="order-items">
+
+<div class="item" *ngFor="let item of order.items">
+
+<img [src]="'http://localhost:3000/upload/' + item.productId.pic">
+
+<div class="info">
+
+<h4>{{item.productId.pname}}</h4>
+
+<p class="text-muted small">Des : {{item.productId.description}}</p>
+
+<p>Qty : {{item.quantity}}</p>
+
+</div>
+
+<span class="price">
+₹ {{item.productId.price * item.quantity}}
+</span>
+
+</div>
+
+</div>
+
+<div class="order-footer">
+
+<span>Total : ₹ {{order.total}}</span>
+
+<span>
+{{order.address.name}} | {{order.address.phone}}
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+

@@ -1,0 +1,73 @@
+.login-card {
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.brand-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #2b7a4b 0%, #1e4d3b 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.fresh-badge {
+  font-size: 0.75rem;
+  color: #2b7a4b;
+  font-weight: 500;
+}
+
+.grocery-input {
+  border: 1px solid #e2e8f0;
+  border-radius: 0 18px 18px 0;
+  padding: 0.75rem 1rem;
+  border-left: none;
+}
+
+.grocery-input:focus {
+  border-color: #2b7a4b;
+  box-shadow: 0 0 0 0.2rem rgba(43, 122, 75, 0.15);
+}
+
+.input-group-text-custom {
+  border: 1px solid #e2e8f0;
+  border-right: none;
+  border-radius: 18px 0 0 18px;
+  color: #64748b;
+}
+
+.btn-grocery {
+  background: linear-gradient(135deg, #2b7a4b 0%, #1e4d3b 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-grocery:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(43, 122, 75, 0.3);
+  background: linear-gradient(135deg, #1e4d3b 0%, #2b7a4b 100%);
+}
+
+.illustration-peek {
+  padding: 1.5rem;
+}
+
+.product-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(43, 122, 75, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}

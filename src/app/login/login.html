@@ -1,0 +1,134 @@
+
+<div class="container py-3">
+    <div class="row justify-content-center align-items-center g-4">
+      <!-- main login card - completely responsive, bootstrap driven -->
+      <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+        <div class="card login-card overflow-hidden">
+          <div class="card-body p-4 p-xl-5">
+            <div class="row g-4 align-items-center">
+              <!-- left: grocery-themed illustration + tagline (hidden on smallest, visible from md) -->
+              <div class="col-md-5 d-none d-md-block">
+                <div class="illustration-peek">
+                  <div class="product-icon mb-3">
+                    <i class="bi bi-basket3-fill" style="font-size: 3rem; color: #1e4d3b;"></i>
+                  </div>
+                  <h5 class="fw-semibold mt-2" style="color: #1d4534;">farm to fork</h5>
+                  <p class="small text-secondary mb-3">fresh picks, swift delivery</p>
+                  <div class="d-flex flex-wrap gap-2 justify-content-center mt-2">
+                    <span class="badge bg-light text-dark p-2"><i class="bi bi-apple me-1"></i> fruits</span>
+                    <span class="badge bg-light text-dark p-2"><i class="bi bi-flower1 me-1"></i> greens</span>
+                    <span class="badge bg-light text-dark p-2"><i class="bi bi-cup-straw"></i> organic</span>
+                  </div>
+                  <hr class="my-3 opacity-50 w-75 mx-auto">
+                  <p class="small fst-italic text-muted mb-0">“over 6000+ happy families”</p>
+                </div>
+              </div>
+
+              <!-- right: login form -->
+              <div class="col-md-7">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                  <div class="brand-icon">
+                    <i class="bi bi-cart4"></i>
+                  </div>
+                  <div>
+                    <h2 class="h4 fw-bold mb-0" style="color: #1e3a2f;">FreshMart</h2>
+                    <span class="fresh-badge"><i class="bi bi-egg-fried me-1"></i>daily groceries</span>
+                  </div>
+                </div>
+
+                <h1 class="h3 fw-semibold mb-1" style="color: #1f4035;">Welcome back</h1>
+                <p class="text-secondary-emphasis small mb-4">log in to continue your grocery list</p>
+
+                <form [formGroup]="frmGrp" (ngSubmit)="onsubmit()" novalidate>
+
+                  <!-- email / phone (grocery style) -->
+                  <div class="mb-4">
+                    <label class="form-label fw-medium text-secondary" style="font-size: 0.9rem;">
+                      <i class="bi bi-envelope-paper me-1"></i>Email
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-text input-group-text-custom bg-white"><i class="bi bi-person"></i></span>
+                      <input  formControlName="email" type="email" class="form-control grocery-input"   required>
+                      <app-custom-validation [control]="frmGrp.get('email')"></app-custom-validation>
+          
+                    </div>
+                  </div>
+
+                  <!-- password field with bootstrap icon lock -->
+                  <div class="mb-4">
+                    <div class="d-flex justify-content-between">
+                      <label class="form-label fw-medium text-secondary" style="font-size: 0.9rem;">
+                        <i class="bi bi-shield-lock me-1"></i>Password
+                      </label>
+                      <!-- <a href="#" class="grocery-link small" style="font-size:0.85rem;">forgot?</a> -->
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text input-group-text-custom bg-white"><i class="bi bi-key"></i></span>
+                      <input  formControlName="password" type="password" class="form-control grocery-input" value="grocery123"  required>
+                      <app-custom-validation [control]="frmGrp.get('password')"></app-custom-validation>
+                      
+                      <button class="btn btn-outline-secondary border border-start-0 rounded-end-4" type="button" style="border-color:#e2e8f0; background: white; border-radius: 0 18px 18px 0;" id="togglePassword">
+                        <i class="bi bi-eye"></i>
+                      </button>
+                    </div>
+                    <div class="form-text mt-2 ms-2">
+                      <i class="bi bi-info-circle me-1"></i> min. 6 digits save your veggies
+                    </div>
+                  </div>
+
+                  <!-- remember & grocery preferences (bootstrap checkbox styled) -->
+                  <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="rememberMe" checked style="border-color: #2b7a4b;">
+                      <label class="form-check-label small" for="rememberMe">
+                        keep me signed in
+                      </label>
+                    </div>
+                    <div>
+                      <!-- <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill">
+                        <i class="bi bi-truck"></i> free delivery over $35
+                      </span> -->
+                    </div>
+                  </div>
+
+                  <!-- sign in button (grocery green) -->
+                  <button class="btn btn-grocery w-100" type="submit">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>log in & shop
+                  </button>
+
+                  <!-- social alternative with bootstrap icons -->
+                  <!-- <div class="divider my-4">
+                    <span>or continue with</span>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-center flex-wrap">
+                    <button class="btn social-btn" type="button"><i class="bi bi-google me-2" style="color:#d44937;"></i>Google</button>
+                    <button class="btn social-btn" type="button"><i class="bi bi-facebook me-2" style="color:#1877f2;"></i>Facebook</button>
+                    <button class="btn social-btn" type="button"><i class="bi bi-apple me-2"></i>Apple</button>
+                  </div> -->
+
+                  <p class="text-center mt-4 small text-secondary">
+                    don't have an account? 
+                    <a href="./register" class="grocery-link fw-semibold">Register Now</a>
+                  </p>
+
+                  <!-- extra grocery note (micro interaction) -->
+                  <div class="mt-3 text-center small text-muted">
+                    <i class="bi bi-bag-heart me-1"></i>  get your seasonal harvest
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- footer note: simple bootstrap row -->
+        <div class="row text-center mt-3">
+          <div class="col-12">
+            <p class="small text-secondary opacity-75 mb-0">
+              <i class="bi bi-shield-check me-1"></i> secure checkout · 100% organic code
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

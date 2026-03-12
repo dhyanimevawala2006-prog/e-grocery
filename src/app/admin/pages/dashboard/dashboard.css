@@ -1,0 +1,135 @@
+* { font-family: 'Segoe UI', Roboto, system-ui, sans-serif; }
+    body { background-color: #f0f9f5; }
+
+    :root {
+      --pastel-deep: #1e6355;
+      --pastel-medium: #2D927D;
+      --pastel-soft1: #d0f0e8;
+      --pastel-soft2: #b5e3d7;
+      --pastel-soft3: #9ad6ca;
+      --pastel-card-bg: #ffffff;
+      --pastel-shadow: rgba(45, 146, 125, 0.1);
+    }
+
+    /* mini brand */
+    .mini-brand {
+      display: inline-block;
+      background: white;
+      padding: 0.5rem 1.5rem 0.5rem 1rem;
+      border-radius: 60px;
+      box-shadow: 0 6px 14px var(--pastel-shadow);
+      margin: 1.5rem 0 0.5rem 0;
+      border: 1px solid var(--pastel-soft2);
+    }
+    .mini-brand i { color: var(--pastel-medium); font-size: 1.8rem; margin-right: 8px; }
+    .mini-brand span { color: var(--pastel-deep); font-weight: 600; font-size: 1.4rem; }
+
+    /* stat cards - Background colours add kiye */
+    .stat-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 12px 22px -8px var(--pastel-shadow);
+      border: 1px solid #e2f3ed;
+      transition: 0.15s;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* Category card background */
+    .stat-card.category-card {
+      background: linear-gradient(145deg, #d0f0e8, #ffffff);
+    }
+    /* Product card background */
+    .stat-card.product-card {
+      background: linear-gradient(145deg, #b5e3d7, #ffffff);
+    }
+    /* User card background */
+    .stat-card.user-card {
+      background: linear-gradient(145deg, #9ad6ca, #ffffff);
+    }
+    /* Order card background */
+    .stat-card.order-card {
+      background: linear-gradient(145deg, #c5eade, #ffffff);
+    }
+    
+    .stat-card:hover { transform: translateY(-3px); border-color: var(--pastel-soft2); }
+    .stat-icon {
+      background-color: var(--pastel-soft1); width: 52px; height: 52px;
+      border-radius: 18px; display: flex; align-items: center; justify-content: center;
+      color: var(--pastel-deep); font-size: 1.8rem;
+    }
+    .stat-content h4 { color: #4a5e58; font-size: 0.9rem; margin-bottom: 4px; }
+    .stat-content .count { color: var(--pastel-deep); font-weight: 700; font-size: 2rem; }
+
+    /* carousel */
+    .pastel-carousel {
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 16px 30px -8px rgba(30, 99, 85, 0.2);
+    }
+    .carousel-item { background: #e9f7f2; }
+    .carousel-item img { height: 400px; object-fit: cover; width: 100%; }
+    .carousel-caption {
+      /* background: rgba(255,255,255,0.85); */
+      backdrop-filter: blur(4px);
+      border-radius: 50px;
+      padding: 0.6rem 2rem;
+      color: var(--pastel-deep);
+      font-weight: 600;
+      bottom: 30px;
+      left: 40px;
+      right: 40px;
+    }
+    .carousel-indicators [data-bs-target] {
+      background-color: var(--pastel-medium); width: 10px; height: 10px; border-radius: 50%;
+    }
+
+    /* product cards (gallery wale) */
+    .product-gallery-card {
+      background: white; border: none; border-radius: 28px;
+      box-shadow: 0 10px 20px -5px var(--pastel-shadow);
+      transition: 0.2s; height: 100%; overflow: hidden;
+    }
+    .product-gallery-card:hover { transform: translateY(-5px); box-shadow: 0 22px 28px -12px rgba(45,146,125,0.3); }
+    .card-img-container {
+      background: #f0fcf9; padding: 1.2rem 1rem 0.2rem 1rem; text-align: center;
+      border-bottom: 2px dashed var(--pastel-soft2);
+    }
+    .card-img-container img { max-height: 120px; object-fit: contain; }
+    .category-badge {
+      background-color: var(--pastel-soft2); color: #1b5346; font-size: 0.7rem;
+      font-weight: 600; padding: 0.2rem 0.8rem; border-radius: 40px; display: inline-block;
+    }
+    .card-title { color: var(--pastel-deep); font-weight: 600; margin: 0.5rem 0 0.2rem; font-size: 1.1rem; }
+    .price { color: var(--pastel-medium); font-weight: 700; font-size: 1.3rem; }
+    .add-btn {
+      background-color: var(--pastel-soft2); border: none; border-radius: 40px;
+      color: var(--pastel-deep); font-weight: 600; padding: 6px 18px;
+    }
+    .add-btn:hover { background-color: var(--pastel-medium); color: white; }
+
+    /* chart card */
+    .chart-card {
+      background: white; border-radius: 32px; padding: 1.5rem 1rem 1rem 1rem;
+      box-shadow: 0 15px 26px -8px var(--pastel-shadow); border: 1px solid #dcf4ed;
+    }
+    .chart-title { color: var(--pastel-deep); font-weight: 600; font-size: 1.2rem; }
+    .legend-item { color: #2b6b5c; font-size: 0.9rem; }
+
+    .section-title {
+      color: var(--pastel-deep); font-weight: 600; border-left: 8px solid var(--pastel-medium);
+      padding-left: 1rem; margin: 2rem 0 1.2rem 0;
+    }
+
+    footer {
+      background: #d2efe7; color: #1e5e4f; border-radius: 40px 40px 0 0; padding: 2rem 0; margin-top: 3rem;
+    }
+    
+    /* Chart container fix */
+    .chart-container {
+      position: relative;
+      height: 250px;
+      width: 100%;
+    }

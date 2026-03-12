@@ -1,0 +1,38 @@
+<header class="main-header">
+    <div class="header-container">
+        
+        <div class="search-area">
+            <div class="search-card">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search orders, stock or customers...">
+            </div>
+        </div>
+
+        <div class="header-actions">
+            
+            <div class="action-card">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-badge"></span>
+            </div>
+
+            <div class="action-card">
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+
+            <div class="vertical-divider"></div>
+
+            <div class="admin-card">
+                <div class="admin-info">
+                    <span class="admin-name">{{ adminName }}</span>
+                    <span class="admin-role">Admin</span>
+                </div>
+                <div class="avatar-wrapper">
+                    <img [src]="'https://ui-avatars.com/api/?name=' + adminName + '&background=2D927D&color=fff'" [alt]="adminName">
+                </div>
+                <button (click)="logout()" class="logout-btn" title="Logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

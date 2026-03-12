@@ -1,0 +1,337 @@
+/* Hero Section Styles */
+.hero-section {
+    background: linear-gradient(135deg, #f8f9e6 0%, #f0f5e8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Text Colors */
+.text-leaf {
+    color: #2D927D;
+}
+
+/* Button Styles */
+.btn-ecolive {
+    background-color: #2D927D;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-ecolive:hover {
+    background-color: #1e6355;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(45, 146, 125, 0.3) !important;
+}
+
+.btn-hover {
+    transition: all 0.3s ease;
+}
+
+/* Carousel Customization */
+#groceryHeroCarousel {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item {
+    padding: 30px 20px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item .row {
+    min-height: 400px;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    margin-bottom: 20px;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #2D927D;
+    opacity: 0.5;
+    margin: 0 6px;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators button.active {
+    opacity: 1;
+    transform: scale(1.2);
+    background-color: #1e6355;
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(45, 146, 125, 0.8);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    margin: 0 20px;
+}
+
+#groceryHeroCarousel:hover .carousel-control-prev,
+#groceryHeroCarousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #1e6355;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 25px;
+    height: 25px;
+}
+
+/* Image Styles */
+.carousel-item img {
+    border-radius: 30px !important;
+    transition: all 0.5s ease;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-item img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 35px rgba(45, 146, 125, 0.25);
+}
+
+/* Badge Styles */
+.badge {
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* Basic navigation styles */
+.nav-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-hover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Profile text style */
+.profile-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(17, 17, 18);
+}
+
+/* Hover effect */
+.nav-hover-wrapper:hover .nav-link {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.nav-hover-wrapper:hover .profile-text {
+  color: rgb(17, 17, 18);
+}
+
+/* Active state */
+.nav-link:active {
+  transform: translateY(0);
+}
+
+/* Optional: Add pulse animation on hover for icon */
+.nav-hover-wrapper:hover .fa-beat {
+  animation: pulse 0.5s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Styles */
+.display-5 {
+    font-size: calc(1.5rem + 2.5vw);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+/* Price Tag */
+.fs-5 .text-leaf {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Animation for carousel text */
+.carousel-item .col-lg-6:first-child {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.carousel-item .col-lg-6:last-child {
+    animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    .carousel-item .row {
+        min-height: auto;
+        text-align: center;
+    }
+    
+    .carousel-item .col-lg-6:first-child {
+        margin-bottom: 2rem;
+    }
+    
+    .d-flex.flex-wrap {
+        justify-content: center;
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+        opacity: 0.7;
+    }
+    
+    .carousel-control-prev {
+        left: 10px;
+    }
+    
+    .carousel-control-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding-bottom: 3rem !important;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .fs-3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .carousel-item img {
+        max-height: 250px !important;
+    }
+    
+    .badge {
+        font-size: 0.8rem;
+        padding: 4px 12px !important;
+    }
+    
+    .carousel-indicators {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .carousel-item {
+        padding: 20px 10px;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 2rem !important;
+        font-size: 1rem;
+    }
+    
+    .d-flex.flex-wrap {
+        gap: 0.5rem !important;
+    }
+    
+    .fs-5.ms-2 {
+        margin-left: 0 !important;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Additional hover effects */
+.btn-ecolive i {
+    transition: transform 0.3s ease;
+}
+
+.btn-ecolive:hover i {
+    transform: translateX(-3px);
+}
+
+/* Custom scrollbar for the carousel (if needed) */
+#groceryHeroCarousel::-webkit-scrollbar {
+    width: 8px;
+}
+
+#groceryHeroCarousel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#groceryHeroCarousel::-webkit-scrollbar-thumb {
+    background: #2D927D;
+    border-radius: 10px;
+}
+
+#groceryHeroCarousel::-webkit-scrollbar-thumb:hover {
+    background: #1e6355;
+}

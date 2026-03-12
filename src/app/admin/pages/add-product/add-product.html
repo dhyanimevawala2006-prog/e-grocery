@@ -1,0 +1,90 @@
+<div class="dashboard-page">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="page-top-bar">
+        <h1 class="page-main-title">Create New Master Product</h1>
+        <div class="action-group">
+            <!-- <button class="btn-glass-discard">Discard</button> -->
+            <a routerLink="/admin/showproduct" class="btn-gradient-publish">Back to product</a>
+            <button type="submit" class="btn-gradient-publish">
+                Publish Product <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="product-grid">
+        
+        <div class="glass-card main-info-section">
+            <div class="card-title-box">
+                <div class="icon-glow"><i class="fa-solid fa-feather-pointed"></i></div>
+                <h3>General Information</h3>
+            </div>
+
+            <div class="pro-input-group">
+                <label>Product Official Name</label>
+                <input formControlName="pname" type="text" placeholder="e.g. Premium Hass Avocado">
+            <app-custom-validation [control]="productForm.get('pname')"></app-custom-validation>
+            </div>
+
+            <div class="pro-input-group">
+                <label>Category Selection</label>
+                <div class="custom-select">
+                    <select formControlName="category">
+                        <option value="Fresh Vegetables">Fresh Vegetables</option>
+                        <option value="Organic Fruits">Organic Fruits</option>
+                        <option value="Dairy & Breakfast">Dairy & Breakfast</option>
+                        <option value="meat">meat</option>
+                        <option value="snacks">snacks</option>
+                    </select>
+                    <app-custom-validation [control]="productForm.get('category')"></app-custom-validation>
+                </div>
+            </div>
+
+            <!-- <div class="pro-input-group">
+                <label>SKU (Stock Keeping Unit)</label>
+                <input type="text" placeholder="GRO-AVO-2026">
+            </div> -->
+
+            <div class="pro-input-group">
+                <label>Professional Description</label>
+                <textarea  formControlName="description" placeholder="Describe the origin and quality..."></textarea>
+            <app-custom-validation [control]="productForm.get('description')"></app-custom-validation>
+            </div>
+        </div>
+
+        <div class="right-column-stack">
+            
+            <div class="glass-card media-section">
+                <h3>Product Media</h3>
+                <div class="advanced-dropzone">
+                    <div class="dropzone-content">
+                        <input formControlName="pic" type="file"(change)="onFileChange($event)" class="form-control" name="" id="" aria-describedby="helpId"  placeholder="Category Picture" />
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p>Drag images here or <span>Browse</span></p>
+                        <small>Max: 10MB (PNG, WebP)</small>
+                    </div>
+                </div>
+                <app-custom-validation [control]="productForm.get('pic')"></app-custom-validation>
+
+            </div>
+
+            <div class="glass-card pricing-section">
+                <h3>Pricing & Stock</h3>
+                <div class="pricing-flex">
+                    <div class="pro-input-group">
+                        <label>Price ($)</label>
+                        <input formControlName="price" type="number" placeholder="0.00">
+                        <app-custom-validation [control]="productForm.get('price')"></app-custom-validation>
+
+                    </div>
+                    <!-- <div class="pro-input-group">
+                        <label>Qty</label>
+                        <input type="number" placeholder="0">
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </form>
+</div>

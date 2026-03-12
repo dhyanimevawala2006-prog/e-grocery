@@ -1,0 +1,59 @@
+<div class="orders-container">
+
+<h2>My Orders</h2>
+
+<div *ngIf="orders.length == 0">
+No Orders Found
+</div>
+
+<div class="order-card" *ngFor="let order of orders">
+
+<div class="order-header">
+
+<span>Order ID : {{order._id}}</span>
+
+<span class="status">
+{{order.status}}
+</span>
+
+</div>
+
+<!-- ORDER ITEMS -->
+
+<div class="order-items">
+
+<div class="item" *ngFor="let item of order.items">
+
+<img [src]="'http://localhost:3000/upload/' + item.productId.pic">
+
+<div class="info">
+
+<h4>{{item.productId.name}}</h4>
+
+<p>Qty : {{item.quantity}}</p>
+
+</div>
+
+<div class="price">
+
+₹ {{item.productId.price * item.quantity}}
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="order-footer">
+
+<span>Total : ₹ {{order.total}}</span>
+
+<span>{{order.createdAt | date:'medium'}}</span>
+
+</div>
+
+</div>
+
+</div>

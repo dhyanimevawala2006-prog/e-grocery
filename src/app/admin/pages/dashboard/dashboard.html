@@ -1,0 +1,201 @@
+<!-- ========== NAVBAR HATAYA ========= -->
+<!-- <div class="container">
+  <div class="mini-brand">
+    <i class="fas fa-seedling"></i> <span>pastelBasket</span>
+  </div>
+</div> -->
+
+<!-- ========== CAROUSEL – Perfect images ========= -->
+  <h3 class="section-title mt-5"><i class="fas fa-images me-2" style="color:#2D927D;"></i> fresh from farm</h3>
+  <div id="groceryCarousel" class="carousel slide pastel-carousel" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#groceryCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#groceryCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#groceryCarousel" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#groceryCarousel" data-bs-slide-to="3"></button>
+    </div>
+    <div class="carousel-inner">
+      <!-- slide 1: vibrant fruits (the one you liked – kept) -->
+      <div class="carousel-item active">
+        <img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=600" class="d-block w-100" alt="colorful mixed fruits">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color: #f3f7f6;">orchard fresh</h5>
+          <p style="color:whitesmoke;">berries, citrus & more</p>
+        </div>
+      </div>
+      <!-- slide 2: Dairy Products -->
+      <div class="carousel-item">
+        <img src="https://www.mda.state.mn.us/sites/default/files/2025-09/AdobeStock_1537313397.jpeg" class="d-block w-100" alt="Fresh dairy products">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#f3f7f6;">fresh dairy</h5>
+          <p style="color:whitesmoke;">milk, cheese, butter & yogurt</p>
+        </div>
+      </div>
+      <!-- slide 3: Vegetables -->
+      <div class="carousel-item">
+        <img src="https://res.cloudinary.com/jerrick/image/upload/v1674245711/63caf64e21e3aa001d5b601f.jpg" class="d-block w-100" alt="Fresh vegetables">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#f3f7f6;">garden fresh</h5>
+          <p style="color:whitesmoke;">crisp vegetables & herbs</p>
+        </div>
+      </div>
+      <!-- slide 4: Healthy Snacks -->
+      <div class="carousel-item">
+        <img src="https://saptrishifoods.com/cdn/shop/articles/saptrsihi.png?v=1764842517" class="d-block w-100" alt="Healthy snacks">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color:#f3f7f6;">healthy snacks</h5>
+          <p style="color: whitesmoke;">masala makhana, nuts & more</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#groceryCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#groceryCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+<div class="container mt-2">
+  <!-- ========== STAT CARDS ========= -->
+  <div class="row g-3 mb-4">
+    <!-- Category card -->
+    <div class="col-6 col-md-3">
+      <div class="stat-card category-card">
+        <div class="stat-icon"><i class="fas fa-tags"></i></div>
+        <div class="stat-content text-end"><h4>Revenu</h4><span class="count">{{totalrevenue}}</span></div>
+      </div>
+    </div>
+    <!-- Product card -->
+    <div class="col-6 col-md-3">
+      <div class="stat-card product-card">
+        <div class="stat-icon"><i class="fas fa-box-open"></i></div>
+        <div class="stat-content text-end"><h4>Product</h4><span class="count">{{pcount}}</span></div>
+      </div>
+    </div>
+    <!-- User card -->
+    <div class="col-6 col-md-3">
+      <div class="stat-card user-card">
+        <div class="stat-icon"><i class="fas fa-user-friends"></i></div>
+        <div class="stat-content text-end"><h4>User</h4><span class="count">{{ucount}}</span></div>
+      </div>
+    </div>
+    <!-- Order card -->
+    <div class="col-6 col-md-3">
+      <div class="stat-card order-card">
+        <div class="stat-icon"><i class="fas fa-shopping-bag"></i></div>
+        <div class="stat-content text-end"><h4>Order</h4><span class="count">{{ocount}}</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CHART - Ab properly dikhega ========= -->
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <div class="chart-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="chart-title"><i class="fas fa-chart-line me-2" style="color:#2D927D;"></i>weekly activity</span>
+          <span class="legend-item"><i class="fas fa-circle me-1" style="color:#1e6355;"></i> orders  <i class="fas fa-circle ms-3 me-1" style="color:#9ad6ca;"></i> users</span>
+        </div>
+        <!-- Chart container with fixed height -->
+        <div class="chart-container">
+          <canvas id="dashboardChart"></canvas>
+        </div>
+        <!-- Category/Product/Order/User legend -->
+        <div class="d-flex justify-content-center gap-4 mt-3 small fw-semibold" style="color:#266454;">
+          <span><i class="fas fa-square me-1" style="color:#1e6355;"></i> Category (3)</span>
+          <span><i class="fas fa-square me-1" style="color:#2D927D;"></i> Product (8)</span>
+          <span><i class="fas fa-square me-1" style="color:#9ad6ca;"></i> Order (7)</span>
+          <span><i class="fas fa-square me-1" style="color:#b5e3d7;"></i> User (12)</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="p-3 rounded-4 text-center" style="background:#d5f2e9;">
+            <i class="fas fa-apple-alt fa-2x" style="color:#1e6355;"></i>
+            <h5 class="mt-2 mb-0" style="color:#1e5a4c;">24 items</h5>
+            <small>fresh stock</small>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="p-3 rounded-4 text-center" style="background:#c5eade;">
+            <i class="fas fa-truck fa-2x" style="color:#2D927D;"></i>
+            <h5 class="mt-2 mb-0" style="color:#1e5a4c;">free ship</h5>
+            <small>over $30</small>
+          </div>
+        </div>
+        <div class="col-12 mt-2">
+          <div class="p-3 rounded-4 d-flex align-items-center" style="background:#e3f3ed;">
+            <i class="fas fa-leaf fa-2x me-3" style="color:#1e6355;"></i>
+            <div><strong style="color:#1e6355;">earth month</strong> <br> <span style="color:#3b7b6a;">20% off organic</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- ========== PRODUCT GALLERY CARDS ========= -->
+  <!-- <h3 class="section-title mt-5"><i class="fas fa-cube me-2" style="color:#2D927D;"></i> today's picks</h3> -->
+  <!-- <div class="row g-4"> -->
+    <!-- card 1: apples -->
+    <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="product-gallery-card">
+        <div class="card-img-container"><img src="https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=400" alt="apples"></div>
+        <div class="card-body">
+          <span class="category-badge">fruits</span>
+          <h5 class="card-title">red apples</h5>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price">$4.99</span> <span class="price-unit">/kg</span>
+            <button class="add-btn"><i class="fas fa-plus me-1"></i>add</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- card 2: dairy -->
+    <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="product-gallery-card">
+        <div class="card-img-container"><img src="https://images.pexels.com/photos/416607/pexels-photo-416607.jpeg?auto=compress&cs=tinysrgb&w=400" alt="dairy products"></div>
+        <div class="card-body">
+          <span class="category-badge">dairy</span>
+          <h5 class="card-title">dairy combo</h5>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price">$5.99</span> <span class="price-unit">/pack</span>
+            <button class="add-btn"><i class="fas fa-plus me-1"></i>add</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- card 3: vegetables -->
+    <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="product-gallery-card">
+        <div class="card-img-container"><img src="https://images.pexels.com/photos/406152/pexels-photo-406152.jpeg?auto=compress&cs=tinysrgb&w=400" alt="mixed vegetables"></div>
+        <div class="card-body">
+          <span class="category-badge">veg</span>
+          <h5 class="card-title">mixed veggies</h5>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price">$3.99</span> <span class="price-unit">/pack</span>
+            <button class="add-btn"><i class="fas fa-plus me-1"></i>add</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- card 4: makhana -->
+    <!-- <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="product-gallery-card">
+        <div class="card-img-container"><img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg?auto=compress&cs=tinysrgb&w=400" alt="masala makhana"></div>
+        <div class="card-body">
+          <span class="category-badge">snacks</span>
+          <h5 class="card-title">masala makhana</h5>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="price">$1.99</span> <span class="price-unit">/pack</span>
+            <button class="add-btn"><i class="fas fa-plus me-1"></i>add</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- </div> -->
+</div>

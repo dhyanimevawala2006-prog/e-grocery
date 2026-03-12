@@ -1,0 +1,123 @@
+<div class="container py-3">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12 col-md-11 col-lg-9 col-xl-8">
+        <div class="card register-card overflow-hidden">
+          <div class="card-body p-4 p-xl-5">
+            <div class="row g-4 align-items-center">
+              <!-- left illustration (hidden on small, visible md+) -->
+              <div class="col-md-5 d-none d-md-block">
+                <div class="illustration">
+                  <div class="product-icon-lg mb-3">
+                    <i class="bi bi-basket2-fill"></i>
+                  </div>
+                  <h4 class="fw-semibold" style="color: #1f523b;">join the farm club</h4>
+                  <p class="small text-secondary my-3">fresh organic produce,<br>delivered to your doorstep</p>
+                  <div class="d-flex flex-wrap gap-2 justify-content-center mt-3">
+                    <span class="badge bg-light text-dark px-3 py-2"><i class="bi bi-apple"></i> fruits</span>
+                    <span class="badge bg-light text-dark px-3 py-2"><i class="bi bi-flower2"></i> veggies</span>
+                    <span class="badge bg-light text-dark px-3 py-2"><i class="bi bi-cup-straw"></i> herbs</span>
+                  </div>
+                  <hr class="my-4 w-75 mx-auto opacity-25">
+                  <p class="small fst-italic text-muted mb-0">🌱 100% compostable packaging</p>
+                </div>
+              </div>
+
+              <!-- registration form (right side) -->
+              <div class="col-md-7">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                  <div class="brand-icon" >
+                    <i class="fa-regular fa-cart-shopping" style="color: rgba(235, 243, 235, 0.04);"></i>
+                    <i class="bi bi-carrot"></i>
+                  </div>
+                  <div>
+                    <h2 class="h4 fw-bold mb-0" style="color: #1b4d3e;">VeggieVibes</h2>
+                    <span class="fresh-badge"><i class="bi bi-leaf me-1"></i>organic grocery</span>
+                  </div>
+                </div>
+
+                <h1 class="h3 fw-semibold mb-1" style="color: #1b4d3e;">create account</h1>
+
+                <form class="needs-validation" [formGroup]="frmGrp" (ngSubmit)="onsubmit()">
+                  <!-- USERNAME field -->
+                  <div class="mb-3 input-icon-group">
+                    <i class="bi bi-person-badge input-icon"></i>
+                    <input  formControlName="username" type="text" class="grocery-input" placeholder="username" value="greengardener" required>
+                    <app-custom-validation [control]="frmGrp.get('username')"></app-custom-validation>
+                </div>
+
+                  <!-- EMAIL field -->
+                  <div class="mb-3 input-icon-group">
+                    <i class="bi bi-envelope input-icon"></i>
+                    <input formControlName="email" type="email" class="grocery-input" placeholder="email address" value="hello@veggie.com" required>
+                    <app-custom-validation [control]="frmGrp.get('email')"></app-custom-validation>
+                </div>
+
+                  <!-- MOBILE NO field -->
+                  <div class="mb-3 input-icon-group">
+                    <i class="bi bi-phone input-icon"></i>
+                    <input formControlName="mobileno" type="tel" class="grocery-input" placeholder="mobile number" value="+1 234 567 8900" required>
+                    <app-custom-validation [control]="frmGrp.get('mobileno')"></app-custom-validation>
+                </div>
+
+                  <!-- PASSWORD field (with optional strength note) -->
+                  <div class="mb-3 input-icon-group">
+                    <i class="bi bi-lock input-icon"></i>
+                    <input  formControlName="password" type="password" class="grocery-input" placeholder="password" value="veggie123" required>
+                    <app-custom-validation [control]="frmGrp.get('password')"></app-custom-validation>
+                </div>
+
+                  <!-- confirm password? we can add a second field but not mandatory per request. 
+                       However it's nice to have a "confirm" for UX, but spec asked username,password,email,mobileno 
+                       we'll keep just those four. 
+                       But to match register expectations, adding a visible "confirm" as extra would be user friendly,
+                       yet the request explicitly lists 4 fields. So I'll keep exactly 4. 
+                       (if you want to show 5th field I can adjust, but I'll follow spec strictly) 
+                       Actually spec: username,password,email,mobileno – that's 4 fields. I'll present exactly 4. -->
+
+                  <!-- terms & privacy (checkbox) -->
+                  <div class="form-check my-3">
+                    <input class="form-check-input" type="checkbox" id="termsCheck" checked>
+                    <label class="form-check-label small" for="termsCheck">
+                      i agree to the <a href="#" class="grocery-link">terms</a> and <a href="#" class="grocery-link">privacy policy</a>
+                    </label>
+                  </div>
+
+                  <!-- register button -->
+                  <button class="btn btn-grocery w-100" type="submit">
+                    <i class="bi bi-person-plus-fill me-2"></i>register & get 10% off
+                  </button>
+
+                  <!-- divider -->
+                  <!-- <div class="divider d-flex align-items-center my-4 text-secondary small">
+                    <span class="flex-grow-1 border-top"></span>
+                    <span class="mx-3">or sign up with</span>
+                    <span class="flex-grow-1 border-top"></span>
+                  </div> -->
+
+                  <!-- social options -->
+                  <!-- <div class="d-flex gap-2 justify-content-center flex-wrap">
+                    <button class="btn btn-outline-secondary rounded-pill px-3" type="button" style="border-color:#cfe5d8; background:#f6fbf8;"><i class="bi bi-google me-2" style="color:#d44937;"></i>Google</button>
+                    <button class="btn btn-outline-secondary rounded-pill px-3" type="button" style="border-color:#cfe5d8; background:#f6fbf8;"><i class="bi bi-facebook me-2" style="color:#1877f2;"></i>Facebook</button>
+                  </div> -->
+
+                  <p class="text-center mt-4 small text-secondary">
+                    already have an account?
+                    <a href="login.html" class="grocery-link fw-semibold">log in</a>
+                  </p>
+
+                  <!-- extra green note -->
+                  <p class="text-center small text-muted mt-2">
+                    <i class="bi bi-shield-check me-1"></i>your data is veggie‑safe
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- footer note -->
+        <div class="text-center mt-3 small text-secondary opacity-75">
+          <i class="bi bi-bag-heart me-1"></i> free delivery on first order
+        </div>
+      </div>
+    </div>
+  </div>

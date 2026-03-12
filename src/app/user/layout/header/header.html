@@ -1,0 +1,150 @@
+<nav class="navbar navbar-expand-lg py-3 fixed-navbar">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-3" href="#">
+      <i class="bi bi-brightness-alt-highlight-fill text-leaf me-2"></i>Ecolive<span class="text-leaf">®</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link" href="/about">About us</a></li>
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link" href="/explore">Products</a></li>
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link" href="/myorder">My Orders</a></li>
+        <li class="nav-item nav-hover-wrapper"><a class="nav-link" href="/contact">Contact us</a></li>
+
+
+
+        <!-- MART LINK REMOVED -->
+      </ul>
+
+
+
+      <div class="d-flex gap-2 align-items-center me-3">
+        <li class="nav-item nav-hover-wrapper">
+  <a class="btn btn-outline-ecolive rounded-pill btn-hover position-relative" href="/profile">
+    <i class="bi bi-person-circle"></i>
+    <span class="profile-text">Profile</span>
+  </a>
+</li>
+        <a routerLink="/wishlist" class="btn btn-outline-ecolive rounded-pill btn-hover position-relative" >
+          <i class="bi bi-heart-fill text-danger me-1"></i>Wishlist
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">
+            {{wishlistCount}}
+            <span class="visually-hidden">items in wishlist</span>
+          </span>
+        </a>
+      </div>
+      
+       
+      
+      <div class="d-flex gap-2 align-items-center">
+        <!-- <a href="/login" class="btn btn-outline-ecolive rounded-pill btn-hover"><i class="bi bi-person me-1"></i>Login/Reg</a> -->
+          @if(isLoggedIn){
+            <button class="btn btn-outline-ecolive rounded-pill btn-hover" (click)="logout()" ><i class="bi bi-person me-1"></i>Logout</button>
+         }@else {
+            <a href="/login" class="btn btn-outline-ecolive rounded-pill btn-hover"><i class="bi bi-person me-1"></i>Login/Reg</a>
+         }
+        <a href="/cart" class="btn btn-ecolive rounded-pill position-relative btn-hover">
+          <i class="bi bi-cart4"></i> Cart <span class="badge bg-warning text-dark rounded-pill ms-1"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Add padding to body to prevent content from hiding under fixed navbar -->
+<!-- <div style="padding-top: 20px;"></div> -->
+
+<!-- ========== HERO with fresh mango juice image ========== -->
+<div class="hero-section pt-4 pb-5 mb-5">
+        <div class="container">
+            <!-- carousel added here -->
+            <div id="groceryHeroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <!-- indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#groceryHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#groceryHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#groceryHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <!-- Slide 1 – exactly original mango juice content (first image) -->
+                    <div class="carousel-item active">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-6">
+                                <p class="text-leaf fw-semibold mb-1"><i class="bi bi-droplet-half"></i> Ecolive®</p>
+                                <h1 class="display-5 fw-bold">Fresh Mango Juice <br><span class="text-leaf">Just Fruit</span></h1>
+                                <p class="fs-3 fw-semibold mt-2">Start from: <span class="text-leaf">₹200</span></p>
+                                <button class="btn btn-ecolive btn-lg rounded-pill px-5 mt-2 shadow-sm btn-hover"><i class="bi bi-bag-check me-2"></i>Shop Now</button>
+                                <div class="d-flex flex-wrap gap-3 mt-5">
+                                    <span class="badge" style="background:#d8325a; color:white; padding:6px 16px; border-radius:40px;"><i class="bi bi-tag-fill me-1"></i>40% Off Everyday Fresh</span>
+                                    <span class="badge" style="background:#e07c2c; color:white; padding:6px 16px; border-radius:40px;"><i class="bi bi-tag-fill me-1"></i>20% Off Healthy Food</span>
+                                    <span class="fw-bold fs-5 ms-2">Best Price: <span class="text-leaf">₹500</span></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/a1b0f2202131305.6680fa98057b1.jpg" 
+                                     alt="Fresh mango juice with pulp" class="img-fluid rounded-5 shadow-lg" style="max-height: 360px; width: auto; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 – coconut water / e-grocery variant (using similar style but different product) -->
+                    <div class="carousel-item">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-6">
+                                <p class="text-leaf fw-semibold mb-1"><i class="bi bi-droplet-half"></i> Ecolive®</p>
+                                <h1 class="display-5 fw-bold">Tender Coconut <br><span class="text-leaf">with Pulp</span></h1>
+                                <p class="fs-3 fw-semibold mt-2">Start from: <span class="text-leaf">₹90</span></p>
+                                <button class="btn btn-ecolive btn-lg rounded-pill px-5 mt-2 shadow-sm"><i class="bi bi-bag-check me-2"></i>Shop Now</button>
+                                <div class="d-flex flex-wrap gap-3 mt-5">
+                                    <span class="badge" style="background:#2D927D; color:white; padding:6px 16px; border-radius:40px;"><i class="bi bi-tag-fill me-1"></i>15% Off Hydration</span>
+                                    <span class="badge" style="background:#1e6355; color:white; padding:6px 16px; border-radius:40px;"><i class="bi bi-tag-fill me-1"></i>Combo offer</span>
+                                    <span class="fw-bold fs-5 ms-2">Best Price: <span class="text-leaf">₹260</span></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <!-- coconut water realistic image (free license style) -->
+                                <img src="https://images.pexels.com/photos/5947087/pexels-photo-5947087.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                                     alt="Fresh coconut water with straw" class="img-fluid rounded-5 shadow-lg" style="max-height: 360px; width: auto; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 – green smoothie / veggie juice -->
+                    <div class="carousel-item">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-6">
+                                <p class="text-leaf fw-semibold mb-1"><i class="bi bi-droplet-half"></i> Ecolive®</p>
+                                <h1 class="display-5 fw-bold">Green Detox <br><span class="text-leaf">Spinach + Kale</span></h1>
+                                <p class="fs-3 fw-semibold mt-2">Start from: <span class="text-leaf">₹160</span></p>
+                                <button class="btn btn-ecolive btn-lg rounded-pill px-5 mt-2 shadow-sm"><i class="bi bi-bag-check me-2"></i>Shop Now</button>
+                                <div class="d-flex flex-wrap gap-3 mt-5">
+                                    <span class="badge" style="background:#e07c2c; color:white; padding:6px 16px; border-radius:40px;"><i class="bi bi-tag-fill me-1"></i>25% Off Wellness</span>
+                                    <span class="badge" style="background:#2D927D; color:white; padding:6px 16px; border-radius:40px;"><i class="bi bi-tag-fill me-1"></i>Fibre rich</span>
+                                    <span class="fw-bold fs-5 ms-2">Best Price: <span class="text-leaf">₹300</span></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <img src="https://images.pexels.com/photos/775030/pexels-photo-775030.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                                     alt="Fresh green smoothie with apple and kale" class="img-fluid rounded-5 shadow-lg" style="max-height: 360px; width: auto; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- carousel controls (prev/next) -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#groceryHeroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#groceryHeroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!-- end carousel -->
+        </div>
+    </div>
