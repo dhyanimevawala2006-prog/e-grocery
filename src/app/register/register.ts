@@ -31,8 +31,8 @@ export class Register {
     if (this.frmGrp.valid) {
       this.uService.sendOtp(this.frmGrp.value).subscribe({
         next: (res: any) => {
-          localStorage.setItem('verificationId', res.verificationId);
-          localStorage.setItem('userData', JSON.stringify(this.frmGrp.value));
+          sessionStorage.setItem('verificationId', res.verificationId);
+          sessionStorage.setItem('userData', JSON.stringify(this.frmGrp.value));
 
           alert('OTP sent to your mobile');
 

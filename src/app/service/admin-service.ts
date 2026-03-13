@@ -19,21 +19,21 @@ export class AdminService {
   }
 
   isAdminLoggedIn(): boolean {
-    return !!localStorage.getItem('adminId');
+    return !!sessionStorage.getItem('adminId');
   }
 
   getAdminId(): string | null {
-    return localStorage.getItem('adminId');
+    return sessionStorage.getItem('adminId');
   }
 
   getAdminName(): string | null {
-    return localStorage.getItem('adminName');
+    return sessionStorage.getItem('adminName');
   }
 
   logout(): void {
-    localStorage.removeItem('adminId');
-    localStorage.removeItem('adminName');
-    localStorage.removeItem('adminEmail');
-    localStorage.removeItem('adminRole');
+    sessionStorage.removeItem('adminId');
+    sessionStorage.removeItem('adminName');
+    sessionStorage.removeItem('adminEmail');
+    sessionStorage.removeItem('adminRole');
   }
 }

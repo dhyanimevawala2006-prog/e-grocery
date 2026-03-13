@@ -20,7 +20,7 @@ export class Wishlist implements OnInit {
   ) {}
 
   ngOnInit() {
-    const userId = localStorage.getItem('id');
+    const userId = sessionStorage.getItem('id');
 
     if (!userId) {
       this.wishlist = [];
@@ -41,14 +41,14 @@ export class Wishlist implements OnInit {
 
   remove(id: any) {
     this.wish.removeWishlist(id).subscribe(() => {
-      const userId = localStorage.getItem('id');
+      const userId = sessionStorage.getItem('id');
 
       this.loadWishlist(userId);
     });
   }
 
   addToCart(product: any) {
-    const userId = localStorage.getItem('id');
+    const userId = sessionStorage.getItem('id');
 
     const data = {
       userId: userId,

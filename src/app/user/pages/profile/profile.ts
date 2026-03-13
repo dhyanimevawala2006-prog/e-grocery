@@ -22,10 +22,10 @@ export class ProfileComponent implements OnInit {
   activeTab: string = 'profile';
   
   userData = {
-    firstName: localStorage.getItem('name'),
-    lastName: localStorage.getItem('name'),
-    email: localStorage.getItem('email'),
-    phone: localStorage.getItem('mobileno'),
+    firstName: sessionStorage.getItem('name'),
+    lastName: sessionStorage.getItem('name'),
+    email: sessionStorage.getItem('email'),
+    phone: sessionStorage.getItem('mobileno'),
     currentPassword: '********',
     newPassword: '',
     confirmPassword: '',

@@ -11,7 +11,7 @@ import { OrderService } from '../../../service/order-service';
 export class Myorder {
 
   orders:any[]=[];
-  userId=localStorage.getItem('id');
+  userId=sessionStorage.getItem('id');
 
   imageUrl="http://localhost:3000/uploads/";
 

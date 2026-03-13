@@ -36,8 +36,8 @@ export class Otp {
   verifyOtp() {
     const data = {
       otp: this.otp,
-      verificationId: localStorage.getItem('verificationId'),
-      userData: JSON.parse(localStorage.getItem('userData')!),
+      verificationId: sessionStorage.getItem('verificationId'),
+      userData: JSON.parse(sessionStorage.getItem('userData')!),
     };
 
     this.userService.verifyOtp(data).subscribe({
@@ -45,8 +45,8 @@ export class Otp {
         alert(res.message || 'OTP verified successfully');
 
         // clear stored data
-        localStorage.removeItem('verificationId');
-        localStorage.removeItem('userData');
+        sessionStorage.removeItem('verificationId');
+        sessionStorage.removeItem('userData');
 
         window.location.href = '/';
       },
